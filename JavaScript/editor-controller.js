@@ -1,20 +1,21 @@
 'use strict'
 
-function init() {
-    // init canvas
+function initCanvas(imgUrl) {
     gCanvas = document.querySelector('#canvas');
     gCtx = gCanvas.getContext('2d');
-    renderCanvas();
-    renderGallery();
+    renderCanvas(imgUrl);
 }
 
 
-function renderCanvas(url) {
+function renderCanvas(imgUrl) {
     // TODO: to render picked image from gallery
     var img = document.querySelector('.test')
     gCanvas.width = img.width;
     gCanvas.height = img.height;
     // img.src = url;
+
+    var elImgCanvas = document.querySelector('.img-canvas');
+    elImgCanvas.src = `/` + imgUrl;
     initContext();
     gCtx.drawImage(img, 0, 0);
 }
