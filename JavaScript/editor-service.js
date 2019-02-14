@@ -1,6 +1,7 @@
 'use strict'
 
 var gText = {top: '', bottom: ''};
+var gCurrStyle = {fontSize: 50, textAlign: 'center', fillStyle: 'white', strokeStyle: '#black'}
 var gCanvas;
 var gCtx;
 var gCurrImgUrl;
@@ -13,18 +14,8 @@ function initContext() {
 }
 
 function editContextFontSize(change){
-    var size = ''
-    size = '' + gCtx.font.charAt(0) + gCtx.font.charAt(1);
-    size = parseInt(size);
-
-    console.log('change:', change);
-    
-    var num = size + change;
-
-    console.log('gCtx.font:', gCtx.font);
-    gCtx.font = `${num}px Impact`;
-    console.log('gCtx.font:', gCtx.font);
-
+    gCurrStyle.fontSize += change;
+    gCtx.font = `${gCurrStyle.fontSize}px Impact`;
     renderText();
 }
 
