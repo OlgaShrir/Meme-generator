@@ -3,12 +3,6 @@
 var gCanvas;
 var gCtx;
 
-
-function init(){
-    initCanvas()
-    renderGallery();
-}
-
 function initCanvas(){
     gCanvas = document.querySelector('#canvas');
     gCtx = gCanvas.getContext('2d');
@@ -18,7 +12,7 @@ function initCanvas(){
     // gCanvas.heigth = 100%;
 
     var img = getImage();
-    img.src = '../leo.jpg';  
+    img.src = 'leo.jpg';  
     img.onload = function(){
         gCtx.drawImage(img, 0, 0);
     }

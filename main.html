@@ -21,13 +21,17 @@
         </nav>
     </header>
     <main>
-        <section class="search">
-            <div class="input"></div>
-            <div class="keywords"></div>
+        <section class="search-panel flex">
+            <form class="flex" onsubmit="searchImgs(event)">
+                <input id="search-input" list="search" name="search">
+                <datalist id="search"></datalist>
+                <input type="submit" >
+                <h2>Look for a great pics for your mem in the gallery!</h2>
+                <button onclick="renderFullGallery()">Show full Gallery</button>
+            </form>
+            <div class="keywords flex wrap"></div>
         </section>
         <section class="gallery-container flex">
-            <div class="search"></div>
-            <div class="keywords flex"></div>
             <div class="gallery flex wrap"></div>
             <aside></aside>
         </section>

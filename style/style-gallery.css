@@ -25,9 +25,28 @@ nav a {
     padding: 1rem;
     border: 1px solid white;
 }
-
+.search-panel {
+    flex-direction: column;
+}
+.search-panel form {
+    height: 40px;
+    border: 2px solid blue;
+}
+form h2 {
+    font-size: 20px;
+    margin: 0;
+}
+form input {
+    height: 100%;
+}
 .keywords {
-    height: 50px;
+    height: 100px;
+    background-color: rgb(196, 196, 247);
+    justify-content: space-around;
+    align-items: center;
+}
+.keywords >* {
+    margin: 5px;
 }
 .gallery {
     width: 100%;
