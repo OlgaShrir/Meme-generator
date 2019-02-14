@@ -3,7 +3,7 @@
 var gText = {top: '', bottom: ''};
 var gCanvas;
 var gCtx;
-
+var gCurrImgUrl;
 
 function initContext() {
     gCtx.font = "50px Impact";
