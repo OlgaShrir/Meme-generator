@@ -1,18 +1,54 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Meme Generator</title>
-    <link rel="stylesheet" href="style.css">
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <meta http-equiv="X-UA-Compatible" content="ie=edge">
+   <title>Meme Generator</title>
+   <link rel="stylesheet" href="/style/style.css">
 </head>
-<body>
-    
 
-    <script src="/JavaScript/gallery-controller.js"></script>
-    <script src="/JavaScript/gallery-service.js"></script>
-    <script src="/JavaScript/editor-controller.js"></script>
-    <script src="/JavaScript/editor-service.js"></script>
+<body onload="init()">
+
+   <header>
+       <div class="title">The best Mem Generator ever!</div>
+       <div class="about"></div>
+       <div class="contact"></div>
+   </header>
+
+   <main>
+
+       <section class="gallery-container">
+           <div class="search"></div>
+           <div class="gallery"></div>
+           <aside></aside>
+       </section>
+
+       <section class="editor-container flex">
+           <div class="canvas-container">
+               <canvas id="canvas"></canvas>
+           </div>
+
+           <div class="editor-panel">
+               <div class="input-top">
+                   Top sentence:
+                   <input type="text">
+               </div>
+               <div class="input-bottom">
+                   Bottom sentence:
+                   <input type="text">
+               </div>
+           </div>
+           
+       </section>
+
+   </main>
+
+   <footer></footer>
+
+   <script src="/JavaScript/gallery-controller.js"></script>
+   <script src="/JavaScript/gallery-service.js"></script>
+   <script src="/JavaScript/editor-controller.js"></script>
+   <script src="/JavaScript/editor-service.js"></script>
 </body>
 </html>

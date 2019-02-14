@@ -1,0 +1,32 @@
+body {
+    margin: 0;
+    padding: 0;
+}
+
+.title {
+    text-align: center;
+    font-size: 36px;
+    margin-top: 20px;
+    color: orangered;
+}
+
+canvas {
+    border: 1px solid black;
+    margin: 10px;
+    width: 100%;
+    /* height: 60%; */
+}
+
+.editor-panel {
+    width: 200px;
+    height: 300px;
+    background-color: darksalmon;
+    margin: 10px;
+}
+
+
+/* Helper */
+/* flex */
+.flex {
+    display: flex;
+}
