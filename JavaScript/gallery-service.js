@@ -31,6 +31,10 @@ function getKeywordImg(id) {
     return keywords;
 }
 
-// createImgs()
-// console.log(gImgs);
+function getSelectedImg(id) {
+    var selectedImg = gImgs.find(function(img) {
+        return img.id === +id;
+    })
+    return selectedImg.url;
+}
 

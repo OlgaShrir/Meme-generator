@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,41 +9,52 @@
     <link rel="stylesheet" href="style/style-editor.css">
     <link rel="stylesheet" href="style/style-gallery.css">
 </head>
+
 <body onload="init()">
     <header class="flex">
-        <div class="title">The best Mem Generator ever!</div>
-        <div class="about"></div>
-        <div class="contact"></div>
+        <div class="title">
+            <h1>The best Mem Generator ever!</h1>
+        </div>
+        <nav class="flex">
+            <a href="#footer" class="about">About</a>
+            <a href="#footer" class="contact">Contact</a>
+        </nav>
     </header>
     <main>
+        <section class="search">
+            <div class="input"></div>
+            <div class="keywords"></div>
+        </section>
         <section class="gallery-container flex">
             <div class="search"></div>
+            <div class="keywords flex"></div>
             <div class="gallery flex wrap"></div>
             <aside></aside>
         </section>
         <section class="editor-container flex">
-                <div class="canvas-container">
-                    <canvas id="canvas"></canvas>
+            <div class="canvas-container">
+                <canvas id="canvas"></canvas>
+            </div>
+
+            <div class="editor-panel">
+                <div class="input-top">
+                    Top sentence:
+                    <input type="text">
                 </div>
-     
-                <div class="editor-panel">
-                    <div class="input-top">
-                        Top sentence:
-                        <input type="text">
-                    </div>
-                    <div class="input-bottom">
-                        Bottom sentence:
-                        <input type="text">
-                    </div>
+                <div class="input-bottom">
+                    Bottom sentence:
+                    <input type="text">
                 </div>
-                
-            </section>
-     
+            </div>
+
+        </section>
+
     </main>
-    <footer></footer>
+    <footer id="footer"></footer>
     <script src="JavaScript/gallery-controller.js"></script>
     <script src="JavaScript/gallery-service.js"></script>
     <script src="JavaScript/editor-controller.js"></script>
     <script src="JavaScript/editor-service.js"></script>
 </body>
+
 </html>

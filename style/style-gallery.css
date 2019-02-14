@@ -1,5 +1,37 @@
+* {
+    box-sizing: border-box;
+}
+body {
+    margin: 0;
+}
+header {
+    height: 10vh;
+    background-color: rgb(89, 89, 150);
+    justify-content: space-around;
+    align-items: center;
+    padding: 25px;
+    color: white;
+    
+}
+nav {
+    justify-content: center;
+    align-items: center;
+    font-size: 1rem;
+}
+
+nav a {
+    text-decoration: none;
+    color: white;
+    padding: 1rem;
+    border: 1px solid white;
+}
+
+.keywords {
+    height: 50px;
+}
 .gallery {
     width: 100%;
+    justify-content: center;
 }
 .gallery-item {
     margin: 10px;
@@ -19,4 +51,10 @@
 }
 .wrap {
     flex-wrap: wrap;
+}
+.center {
+    justify-content: center;
+}
+.hidden {
+    display: none;
 }

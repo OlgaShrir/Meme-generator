@@ -3,13 +3,6 @@ body {
     padding: 0;
 }
 
-.title {
-    text-align: center;
-    font-size: 36px;
-    margin-top: 20px;
-    color: orangered;
-}
-
 canvas {
     border: 1px solid black;
     margin: 10px;
