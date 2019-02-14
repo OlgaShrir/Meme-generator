@@ -1,6 +1,7 @@
 'use strict'
 
 function initCanvas(imgUrl) {
+    gCurrImgUrl = imgUrl;
     gCanvas = document.querySelector('#canvas');
     gCtx = gCanvas.getContext('2d');
     renderCanvas(imgUrl);
@@ -15,16 +16,15 @@ function renderCanvas(imgUrl) {
     // img.src = url;
 
     var elImgCanvas = document.querySelector('.img-canvas');
-    elImgCanvas.src = `/` + imgUrl;
+    elImgCanvas.src = imgUrl;
     initContext();
     gCtx.drawImage(img, 0, 0);
 }
 
 
 function renderText() {
-    renderCanvas(); 
+    renderCanvas(gCurrImgUrl); 
 
-    var ctx = getGCtx();
     var text = getGText();
 
     // text settings
