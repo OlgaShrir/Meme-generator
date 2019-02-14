@@ -1,9 +1,9 @@
 
 function init() {
     let imgs = createImgs();
-    initCanvas();
     renderGallery(imgs);
     renderKeywordsAndSearch();
+
 }
 function renderGallery(imgs) {
     let elGallery = document.querySelector('.gallery');
@@ -16,7 +16,7 @@ function renderGallery(imgs) {
 
 function onSelectImg(id) {
     let srcImg = getSelectedImg(id);
-    renderCanvas(srcImg);
+    initCanvas(srcImg);
 }
 
 function renderKeywordsAndSearch() {
