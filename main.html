@@ -40,7 +40,6 @@
                     <canvas id="canvas"></canvas>
                     <img class="img-canvas" src="/images/14.jpg" hidden alt="">
                 </div>
-     
                 <div class="editor-panel">
                     <div class="input-top">
                         Top sentence:
@@ -50,8 +49,23 @@
                         Bottom sentence:
                         <input type="text" class="textBottom" onkeyup="renderText()">
                     </div>
-                    <button onclick="onChangeFontSize('plus')">+</button>
-                    <button onclick="onChangeFontSize('minus')">-</button>
+                    <button onclick="onChangeFontSize(10)">+</button>
+                    <button onclick="onChangeFontSize(-10)">-</button>
+                    <div class="position-btns">Position: move it a bit to the
+                        <button onclick="onChangePosition('start')">Right</button>
+                        <button onclick="onChangePosition('center')">Center</button>
+                        <button onclick="onChangePosition('end')">Left</button>
+                    </div>
+                    <div class="color-picker">
+                        Font Color
+                        <input id="color-choice" type="color" value="#ffffff">
+                        <button onclick="onChangeColor()">Change color</button>
+                    </div>
+                    <div class="color-picker stroke">
+                        Stroke Color
+                        <input id="stroke-color-choice" type="color" value="#000000">
+                        <button onclick="onChangeStroke()">Change color</button>
+                    </div>
                 </div>
             </div>
 
