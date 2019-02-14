@@ -9,7 +9,7 @@ function initCanvas(imgUrl) {
 
 function renderCanvas(imgUrl) {
     // TODO: to render picked image from gallery
-    var img = document.querySelector('.test')
+    var img = document.querySelector('.img-canvas')
     gCanvas.width = img.width;
     gCanvas.height = img.height;
     // img.src = url;
