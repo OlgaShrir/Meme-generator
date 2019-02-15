@@ -9,11 +9,11 @@ function initCanvas(imgUrl) {
 
 function renderCanvas(imgUrl) {
     var elImgCanvas = document.querySelector('.img-canvas');
-    gCanvas.width = img.width;
-    gCanvas.height = img.height;
     elImgCanvas.src = imgUrl;
+    gCanvas.width = elImgCanvas.width;
+    gCanvas.height = elImgCanvas.height;
     initContext();
-    gCtx.drawImage(img, 0, 0);
+    gCtx.drawImage(elImgCanvas, 0, 0);
 }
 
 function renderText() {
@@ -25,6 +25,7 @@ function renderText() {
     text.bottom = document.querySelector('.textBottom').value;
 
     updateStyle();
+    
     // write top text
     gCtx.fillText(text.top, gCanvas.width / 2, 40);
     gCtx.strokeText(text.top, gCanvas.width / 2, 40);
