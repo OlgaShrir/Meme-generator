@@ -12,24 +12,29 @@
 
 <body onload="init()">
     <header class="flex">
-        <div class="title">
-            <h1>The best Mem Generator ever!</h1>
+        <div class="title flex">
+            <h1>The best Meme Generator ever!</h1>
         </div>
-        <nav class="flex">
-            <a href="#footer" class="about">About</a>
-            <a href="#footer" class="contact">Contact</a>
-        </nav>
+        <div class="nav flex">
+            <div class="nav-item about flex"><a href="#footer" >About</a></div>
+            <div class="nav-item contact flex"><a href="#footer">Contact</a></div>
+        </div>
     </header>
-    <main>
+    <main class="flex">
         <section class="search-panel flex">
-            <form class="flex" onsubmit="searchImgs(event)">
-                <input id="search-input" list="search" name="search">
+            <div class="intro flex wrap">
+                <div class="intro-text"><p>Create your cool meme! Choose a picture from the gallery. You can use search or filter images by categories.</p></div>
+                <div class="search-btns flex">
+                    <button class="search-btn" onclick="renderSearch()">Search</button>
+                    <button class="search-btn" onclick="renderKeywords()">Categories</button>
+                    <button class="search-btn" onclick="renderFullGallery()">Show All</button>
+                </div>
+            </div>
+            <form class="flex hidden">
+                <input id="search-input" list="search" name="search" onkeyup="filterOnType(event)">
                 <datalist id="search"></datalist>
-                <input type="submit" >
-                <h2>Look for a great pics for your mem in the gallery!</h2>
-                <button onclick="renderFullGallery()">Show full Gallery</button>
             </form>
-            <div class="keywords flex wrap"></div>
+            <div class="keywords flex wrap hidden"></div>
         </section>
         <section class="gallery-container flex">
             <div class="gallery flex wrap"></div>

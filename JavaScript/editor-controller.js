@@ -47,7 +47,7 @@ function onChangeColor() {
 function onChangeStroke() {
     let colorStroke = document.getElementById('stroke-color-choice').value;
     updateStroke(colorStroke);
-}ד
+}
 function updateStyle() {
     let size = getNewFontSize();
     let textAlign = getNewTextAlign();
