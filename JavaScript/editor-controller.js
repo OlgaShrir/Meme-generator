@@ -25,7 +25,7 @@ function renderText() {
     text.bottom = document.querySelector('.textBottom').value;
 
     updateStyle();
-    
+
     // write top text
     gCtx.fillText(text.top, gCanvas.width / 2, 40);
     gCtx.strokeText(text.top, gCanvas.width / 2, 40);
@@ -47,7 +47,7 @@ function onChangeColor() {
 function onChangeStroke() {
     let colorStroke = document.getElementById('stroke-color-choice').value;
     updateStroke(colorStroke);
-}
+}ד
 function updateStyle() {
     let size = getNewFontSize();
     let textAlign = getNewTextAlign();
