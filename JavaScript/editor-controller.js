@@ -8,19 +8,19 @@ function initCanvas(imgUrl) {
 }
 
 function renderCanvas(imgUrl) {
-<<<<<<< HEAD
-    // TODO: to render picked image from gallery
-    var img = document.querySelector('.img-canvas')
-=======
+   
     var elImgCanvas = document.querySelector('.img-canvas');
->>>>>>> 8a926bd3f68151d92c5159ac3fdfb9e3a585f02d
-    gCanvas.width = img.width;
-    gCanvas.height = img.height;
     elImgCanvas.src = imgUrl;
-    initContext();
-    gCtx.drawImage(img, 0, 0);
+    gCanvas.width = elImgCanvas.width;
+    gCanvas.height = elImgCanvas.height;
+    // function getSelectedImg, 
+    // line gCurrStyle = {fontSize: 50, textAlign: 'center', fillStyle: 'white', strokeStyle: '#000000'}
+    // allows us to not tou use initContext function
+    // initContext();  
+    gCtx.drawImage(elImgCanvas, 0, 0);
 }
 
+// text
 function renderText() {
     let url = getCurrImgUrl();
     var text = getGText();
@@ -31,8 +31,8 @@ function renderText() {
 
     updateStyle();
     // write top text
-    gCtx.fillText(text.top, gCanvas.width / 2, 40);
-    gCtx.strokeText(text.top, gCanvas.width / 2, 40);
+    gCtx.fillText(text.top, gCanvas.width / 2, gCurrStyle.fontSize);
+    gCtx.strokeText(text.top, gCanvas.width / 2, gCurrStyle.fontSize);
     // write bottom text
     gCtx.fillText(text.bottom, gCanvas.width / 2, gCanvas.height -10);
     gCtx.strokeText(text.bottom, gCanvas.width / 2, gCanvas.height -10);
@@ -61,4 +61,9 @@ function updateStyle() {
     gCtx.textAlign = `${textAlign}`;
     gCtx.fillStyle = `${fill}`;
     gCtx.strokeStyle = `${stroke}`;
+}
+
+function onDownload(elLink){
+    var imgContent = gCanvas.toDataURL('image/jpg');
+    elLink.href = imgContent
 }

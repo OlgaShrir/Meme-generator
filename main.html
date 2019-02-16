@@ -38,33 +38,37 @@
         <section class="editor-container flex">
                 <div class="canvas-container">
                     <canvas id="canvas"></canvas>
-                    <img class="img-canvas" src="/images/14.jpg" hidden alt="">
+                    <img class="img-canvas" src="" hidden alt="">
                 </div>
                 <div class="editor-panel">
                     <div class="input-top">
                         Top sentence:
-                        <input type="text" class="textTop" onkeyup="renderText()">
+                        <input type="text" class="textTop" onkeyup="renderText('top')">
                     </div>
                     <div class="input-bottom">
                         Bottom sentence:
-                        <input type="text" class="textBottom" onkeyup="renderText()">
+                        <input type="text" class="textBottom" onkeyup="renderText('bottom')">
                     </div>
                     <button onclick="onChangeFontSize(10)">+</button>
                     <button onclick="onChangeFontSize(-10)">-</button>
                     <div class="position-btns">Position: move it a bit to the
-                        <button onclick="onChangePosition('start')">Right</button>
-                        <button onclick="onChangePosition('center')">Center</button>
                         <button onclick="onChangePosition('end')">Left</button>
+                        <button onclick="onChangePosition('center')">Center</button>
+                        <button onclick="onChangePosition('start')">Right</button>
                     </div>
                     <div class="color-picker">
                         Font Color
-                        <input id="color-choice" type="color" value="#ffffff">
-                        <button onclick="onChangeColor()">Change color</button>
+                        <input id="color-choice" type="color" value="#ffffff" onchange="onChangeColor()">   
                     </div>
                     <div class="color-picker stroke">
                         Stroke Color
-                        <input id="stroke-color-choice" type="color" value="#000000">
-                        <button onclick="onChangeStroke()">Change color</button>
+                        <input id="stroke-color-choice" type="color" value="#000000" onchange="onChangeStroke()">
+                    </div>
+                    <div >
+                        <!-- <button onclick="onDownload(this)" download="my-img.jpg">Download image</button> -->
+                        <a href="#" class="download" onclick="onSave(this)" download="my-cool-meme.jpg">
+                            Download Meme
+                        </a>
                     </div>
                 </div>
             </div>

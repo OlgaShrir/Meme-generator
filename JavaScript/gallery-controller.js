@@ -15,6 +15,7 @@ function renderGallery(imgs) {
 }
 
 function onSelectImg(id) {
+    
     let srcImg = getSelectedImg(id);
     initCanvas(srcImg);
 }

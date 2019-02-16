@@ -20,6 +20,7 @@ function createImgs() {
         }
         gImgs.push(img);
     }
+
     return gImgs;
 }
 
@@ -32,10 +33,27 @@ function getKeywordImg(id) {
 }
 
 function getSelectedImg(id) {
+
+    // if this is the second picture selection from the gallery
+    if (gCurrImgUrl !== undefined) backToDefault();
+
     var selectedImg = gImgs.find(function(img) {
         return img.id === +id;
     })
     return selectedImg.url;
+}
+
+function backToDefault(){
+    // delete input text when select another picture
+    document.querySelector('.textTop').value = ''
+    document.querySelector('.textBottom').value = ''
+
+    // default font styles
+    gCurrStyle = {fontSize: 50, textAlign: 'center', fillStyle: 'white', strokeStyle: '#000000'}
+    
+    // back to black font-color and white stroke-color after chosing new img from the gallery
+    document.querySelector('#color-choice').value = "#ffffff";
+    document.querySelector('#stroke-color-choice').value="#000000";
 }
 
 function getSelectedImgs(ids) {
