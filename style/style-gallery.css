@@ -8,19 +8,25 @@ body {
 button, input {
     outline: none;
 }
-
 header {
     height: 10vh;
     background-color: rgb(89, 89, 150);
+    align-items: center;
+    justify-content: center;
+}
+.header-container {
+    width: 100%;
+    height: 10vh;
+    max-width: 980px;
     justify-content: space-between;
     align-items: center;
-    padding: 0 25px;
     color: white;
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif
 }
 .title {
     height: inherit;
     align-items: center;
+    padding-left: 10px;
 }
 header h1 {
     font-size: 3em;
@@ -46,13 +52,24 @@ header h1 {
 }
 
 @media (max-width: 980px) {
+    .header-container {
+        max-width: 800px;
+    }
     header h1 {
         font-size: 2em; 
-    } }
+    } 
+    .nav-item{
+        font-size: 1.5em;
+    }
+}
 @media (max-width: 740px) {
     header h1 {
         font-size: 1.5em; 
-    } }
+    } 
+    .nav-item{
+        font-size: 1em;
+    }
+}
 
 /* SEARCH PANEL */
 .search-panel {
@@ -68,23 +85,26 @@ header h1 {
     width: 60%;
     color: rgb(89, 89, 150);
 }
+
+.search-btns {
+    align-items: center;
+    justify-content: flex-end;
+}
 .search-btn {
     align-items: center;
     justify-content: flex-end;
     color: rgb(89, 89, 150);
     background-color: #d3d8f2;
-    border-radius: 10px;
+    border-radius: 15px;
     height: 100%;
     max-width: 100px;
     max-height: 50px;
     margin-right: 5px;
 }
-.search-btns {
-    align-items: center;
-    justify-content: flex-end;
-}
-.search-btns>*:hover {
+
+.search-btn:hover {
     border: 4px solid rgb(89, 89, 150);
+
 }
 
 .search-panel form {
@@ -108,6 +128,18 @@ form input {
 form input::-webkit-calendar-picker-indicator {
 	display: none;
 }
+@media (max-width: 980px) {
+    .intro {
+        font-size: 1em; 
+    } }
+@media (max-width: 740px) {
+    .intro {
+        font-size: 0.8em; 
+    }
+    .intro-text{
+        width: 100%;
+    }
+ }
 /* KEYWORDS */
 .keywords {
     height: 100px;
@@ -128,10 +160,22 @@ main {
 }
 @media (max-width: 980px) {
     main {
-        max-width: 800px; } }
+        max-width: 800px; } 
+    .keywords {
+        flex-direction: column;
+        height: unset;
+    }
+}
 @media (max-width: 740px) {
     main {
-        max-width: 100%; } }
+        max-width: 100%; } 
+    .keywords {
+        flex-direction: column;
+        height: unset;
+        columns: 3;
+    }
+
+}
 
 .gallery {
     width: 100%;

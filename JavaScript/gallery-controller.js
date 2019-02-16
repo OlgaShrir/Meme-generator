@@ -52,13 +52,15 @@ function renderFullGallery() {
 
 function renderSearch() {
     let searchForm = document.querySelector('form');
-    let renderSearchBtn = document.querySelector('.search-btn');
+    let renderSearchBtn = document.querySelector('.search-input-btn');
     searchForm.classList.toggle('hidden');
     if (!searchForm.classList.contains('hidden')){
         renderSearchBtn.style.backgroundColor = "#595996";
+        renderSearchBtn.style.color = "white";
         renderSearchBtn.innerText = 'Hide search';
     } else {
         renderSearchBtn.style.backgroundColor = '';
+        renderSearchBtn.style.color = '';
         renderSearchBtn.innerText = 'Search';
     }
 }
@@ -68,9 +70,11 @@ function renderKeywords() {
     keywords.classList.toggle('hidden');
     if (!keywords.classList.contains('hidden')){
         renderKWBtn.style.backgroundColor = "#595996";
+        renderKWBtn.style.color = 'white';
         renderKWBtn.innerText = 'Hide Categories';
     } else {
         renderKWBtn.style.backgroundColor = '';
+        renderKWBtn.style.color = '';
         renderKWBtn.innerText = 'Categories';
     }
 }

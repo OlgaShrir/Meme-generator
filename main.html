@@ -12,12 +12,14 @@
 
 <body onload="init()">
     <header class="flex">
-        <div class="title flex">
-            <h1>The best Meme Generator ever!</h1>
-        </div>
-        <div class="nav flex">
-            <div class="nav-item about flex"><a href="#footer" >About</a></div>
-            <div class="nav-item contact flex"><a href="#footer">Contact</a></div>
+        <div class="header-container flex wrap">
+            <div class="title flex">
+                <h1>Me-me-maker</h1>
+            </div>
+            <div class="nav flex">
+                <div class="nav-item about flex"><a href="#footer" >About</a></div>
+                <div class="nav-item contact flex"><a href="#footer">Contact</a></div>
+            </div>
         </div>
     </header>
     <main class="flex">
@@ -25,8 +27,8 @@
             <div class="intro flex wrap">
                 <div class="intro-text"><p>Create your cool meme! Choose a picture from the gallery. You can use search or filter images by categories.</p></div>
                 <div class="search-btns flex">
-                    <button class="search-btn" onclick="renderSearch()">Search</button>
-                    <button class="search-btn" onclick="renderKeywords()">Categories</button>
+                    <button class="search-btn search-input-btn" onclick="renderSearch()">Search</button>
+                    <button class="search-btn kw-btn" onclick="renderKeywords()">Categories</button>
                     <button class="search-btn" onclick="renderFullGallery()">Show All</button>
                 </div>
             </div>
