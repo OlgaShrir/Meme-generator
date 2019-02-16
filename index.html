@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Meme Generator</title>
+    <link rel="stylesheet" href="style/style-editor.css">
+    <link rel="stylesheet" href="style/style-gallery.css">
+</head>
+
+<body onload="init()">
+    <header class="flex">
+        <div class="title flex">
+            <h1>The best Meme Generator ever!</h1>
+        </div>
+        <div class="nav flex">
+            <div class="nav-item about flex"><a href="#footer" >About</a></div>
+            <div class="nav-item contact flex"><a href="#footer">Contact</a></div>
+        </div>
+    </header>
+    <main class="flex">
+        <section class="search-panel flex">
+            <div class="intro flex wrap">
+                <div class="intro-text"><p>Create your cool meme! Choose a picture from the gallery. You can use search or filter images by categories.</p></div>
+                <div class="search-btns flex">
+                    <button class="search-btn" onclick="renderSearch()">Search</button>
+                    <button class="search-btn" onclick="renderKeywords()">Categories</button>
+                    <button class="search-btn" onclick="renderFullGallery()">Show All</button>
+                </div>
+            </div>
+            <form class="flex hidden">
+                <input id="search-input" list="search" name="search" onkeyup="filterOnType(event)">
+                <datalist id="search"></datalist>
+            </form>
+            <div class="keywords flex wrap hidden"></div>
+        </section>
+        <section class="gallery-container flex">
+            <div class="gallery flex wrap"></div>
+            <aside></aside>
+        </section>
+
+        <section class="editor-container flex">
+            <div class="canvas-container">
+                <canvas id="canvas"></canvas>
+                <img class="img-canvas" src="" hidden alt="">
+            </div>
+            <div class="editor-panel flex">
+
+                <div class="input-top">
+                    Top sentence:
+                    <input type="text" class="textTop" onkeyup="renderText('top')">
+                    <button onclick="onChangeFontSize(10, 'top')">+</button>
+                    <button onclick="onChangeFontSize(-10, 'top')">-</button>
+                    <div class="position-btns">Position: move it a bit to the
+                        <button onclick="onChangePosition('end', 'top')">Left</button>
+                        <button onclick="onChangePosition('center', 'top')">Center</button>
+                        <button onclick="onChangePosition('start', 'top')">Right</button>
+                    </div>
+                    <div class="color-picker">
+                        Font Color
+                        <input id="color-choice-top" type="color" value="#ffffff" onchange="onChangeColor(this.id,'top')">   
+                    </div>
+                    <div class="color-picker stroke">
+                        Stroke Color
+                        <input id="stroke-color-choice-top" type="color" value="#000000" onchange="onChangeStroke(this.id,'top')">
+                    </div>
+                    <div class="move">
+                        <button class="up" onclick="onMoveText('up', 'top')">up</buttun>
+                        <button class="down" onclick="onMoveText('down', 'top')">down</buttun>
+                        <button class="right" onclick="onMoveText('right', 'top')">right</buttun>
+                        <button class="left" onclick="onMoveText('left', 'top')">left</buttun>
+                    </div>
+
+                </div>
+                
+                <div class="input-bottom">
+                    Bottom sentence:
+                    <input type="text" class="textBottom" onkeyup="renderText('bottom')">
+                    <button onclick="onChangeFontSize(10, 'bottom')">+</button>
+                    <button onclick="onChangeFontSize(-10, 'bottom')">-</button>
+                    <div class="position-btns">Position: move it a bit to the
+                        <button onclick="onChangePosition('end', 'bottom')">Left</button>
+                        <button onclick="onChangePosition('center', 'bottom')">Center</button>
+                        <button onclick="onChangePosition('start', 'bottom')">Right</button>
+                    </div>
+                    <div class="color-picker">
+                        Font Color
+                        <input id="color-choice-bottom" type="color" value="#ffffff" onchange="onChangeColor(this.id,'bottom')">   
+                    </div>
+                    <div class="color-picker stroke">
+                        Stroke Color
+                        <input id="stroke-color-choice-bottom" type="color" value="#000000" onchange="onChangeStroke(this.id,'bottom')">
+                    </div>
+                    <div class="move">
+                            <button class="up" onclick="onMoveText('up', 'bottom')">up</buttun>
+                            <button class="down" onclick="onMoveText('down', 'bottom')">down</buttun>
+                            <button class="right" onclick="onMoveText('right', 'bottom')">right</buttun>
+                            <button class="left" onclick="onMoveText('left', 'bottom')">left</buttun>
+                        </div>
+                </div>
+                
+
+
+                <div class="download">
+                    <a href="#" class="download" onclick="onDownload(this)" download="my-cool-meme.jpg">
+                        Download Meme
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        </section>
+
+    </main>
+    <footer id="footer"></footer>
+    <script src="JavaScript/gallery-controller.js"></script>
+    <script src="JavaScript/gallery-service.js"></script>
+    <script src="JavaScript/editor-service.js"></script>
+    <script src="JavaScript/editor-controller.js"></script>
+</body>
+
+</html>
