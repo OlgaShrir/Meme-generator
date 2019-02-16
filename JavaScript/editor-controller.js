@@ -146,6 +146,6 @@ function updateStyle(location) {
 }
 
 function onDownload(elLink){
-    var imgContent = gCanvas.toDataURL('../image/jpg');
-    elLink.href = imgContent
+    var imgContent = gCanvas.toDataURL('image/jpg');
+    elLink.href = imgContent;
 }
