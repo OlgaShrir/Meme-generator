@@ -27,11 +27,6 @@ function renderCanvas(imgUrl) {
     elImgCanvas.src = imgUrl;
     gCanvas.width = elImgCanvas.width;
     gCanvas.height = elImgCanvas.height;
-    // function getSelectedImg, 
-    // line gCurrStyle = {fontSize: 50, textAlign: 'center', fillStyle: 'white', strokeStyle: '#000000'}
-    // allows us to not tou use initContext function
-    // initContext();  
-    initContext();
     gCtx.drawImage(elImgCanvas, 0, 0);
 }
 
@@ -81,5 +76,5 @@ function updateStyle() {
 
 function onDownload(elLink){
     var imgContent = gCanvas.toDataURL('image/jpg');
-    elLink.href = imgContent
+    elLink.href = imgContent;
 }

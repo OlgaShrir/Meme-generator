@@ -10,7 +10,11 @@ var gKeywords = [
     {name: 'emotion', rate: 4, imgs: [2, 5, 8, 9, 10, 14, 15, 17, 23]},
 ];
 var gImgs;
-
+function checkDataFromLocalStorage() {
+    let data = localStorage.getItem('keywords');
+    if (!data) localStorage.setItem('keywords', JSON.stringify(gKeywords));
+    else gKeywords = JSON.parse(data);
+}
 function createImgs() {
     gImgs = [];
     for (let i = 0; i < 25; i++) {
@@ -56,7 +60,6 @@ function getImgsByKeyword(name) {
 }
 
 function getImgsByText(text) {
-    // debugger;
     idsOfImgs = [];
     var keywords = gKeywords.filter(function(word) {
         return word.name.includes(text);
@@ -67,4 +70,25 @@ function getImgsByText(text) {
         })
     })
     return idsOfImgs;
+}
+
+function updateRating(text) {
+    var keyword = gKeywords.find(function(word) {
+        return word.name === text;
+    });
+    if (!keyword) return;
+    let ratingInStorage = +localStorage.getItem(keyword.name);
+    if (ratingInStorage) {
+        ratingInStorage++;
+        localStorage.setItem(keyword.name, ratingInStorage);
+        if (keyword.rate < ratingInStorage) {
+        keyword.rate = ratingInStorage;
+        renderKeywordsAndSearch();
+        }
+    } else localStorage.setItem(keyword.name, 1);
+}
+
+function setRatingFromStorage(word) {
+    let ratingInStorage = +localStorage.getItem(word.name);
+    if(ratingInStorage > word.rate) word.rate = ratingInStorage;
 }

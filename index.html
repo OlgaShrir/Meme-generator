@@ -17,8 +17,8 @@
                 <h1>Me-me-maker</h1>
             </div>
             <div class="nav flex">
-                <div class="nav-item about flex"><a href="#footer" >About</a></div>
-                <div class="nav-item contact flex"><a href="#footer">Contact</a></div>
+                <div class="nav-item flex"><a href="#about" >About</a></div>
+                <div class="nav-item contact flex"><a href="#contact">Contact</a></div>
             </div>
         </div>
     </header>
@@ -27,20 +27,19 @@
             <div class="intro flex wrap">
                 <div class="intro-text"><p>Create your cool meme! Choose a picture from the gallery. You can use search or filter images by categories.</p></div>
                 <div class="search-btns flex">
-                    <button class="search-btn search-input-btn" onclick="renderSearch()">Search</button>
-                    <button class="search-btn kw-btn" onclick="renderKeywords()">Categories</button>
+                    <button class="search-btn search-input-btn" onclick="toggleSearch()">Search</button>
+                    <button class="search-btn kw-btn" onclick="toggleKeywords()">Categories</button>
                     <button class="search-btn" onclick="renderFullGallery()">Show All</button>
                 </div>
             </div>
             <form class="flex hidden">
-                <input id="search-input" list="search" name="search" onkeyup="filterOnType(event)">
+                <input id="search-input" list="search" name="search" onkeyup="filterOnType(event, this.value)" placeholder="Type here...">
                 <datalist id="search"></datalist>
             </form>
             <div class="keywords flex wrap hidden"></div>
         </section>
         <section class="gallery-container flex">
             <div class="gallery flex wrap"></div>
-            <aside></aside>
         </section>
         <section class="editor-container flex">
                 <div class="canvas-container">
@@ -73,7 +72,7 @@
                     </div>
                     <div >
                         <!-- <button onclick="onDownload(this)" download="my-img.jpg">Download image</button> -->
-                        <a href="#" class="download" onclick="onSave(this)" download="my-cool-meme.jpg">
+                        <a href="#" class="download" onclick="onDownload(this)" download="my-cool-meme.jpg">
                             Download Meme
                         </a>
                     </div>
@@ -83,7 +82,43 @@
         </section>
 
     </main>
-    <footer id="footer"></footer>
+    
+    <div id="about" class="about flex">
+        <div class="about-text-container flex">
+            <div class="about-text flex">
+                <h1>About us</h1>
+                <!-- <p>We are the team of 2 students BootCamp Coding Academy and this is our first team-made project!</p> -->
+            </div>
+        </div>
+            <div class="team-member dev1 flex">
+                <img src="images/about/olga.jpg" alt="Here you could see beautiful Olga's photo:)">
+                <div class="dev-info">
+                    <p>
+                        Hey! I'm Olga Shrir, frontend developer, junior but very talented!:) <br> Feel free to contact me and take a look at my <a href="https://github.com/OlgaShrir" target="_blank">GitHub</a>
+                    </p>
+                    <div class="social-btns">
+
+                    </div>
+                </div>
+                
+            </div>
+            <div class="team-member dev2 flex">
+                <img src="images/about/tati2.jpg" alt="Here you could see Tatiana's photo:)">
+                <div class="dev-info">
+                    <p>
+                    Hey! I'm Tatiana Podolskaya, frontend developer, junior but very talented!:) <br> Feel free to contact me and take a look at my <a href="https://github.com/tatianaPodolsky" target="_blank">GitHub</a>
+                    </p>
+                    <div class="social-btns">
+                        
+                    </div>
+                </div>
+        </div>
+    </div>
+    <div id="contact" class="contact">
+
+    </div>
+    <footer id="footer" class="flex">
+    </footer>
     <script src="JavaScript/gallery-controller.js"></script>
     <script src="JavaScript/gallery-service.js"></script>
     <script src="JavaScript/editor-controller.js"></script>

@@ -6,13 +6,6 @@ var gCanvas;
 var gCtx;
 var gCurrImgUrl;
 
-function initContext() {
-    gCtx.font = "50px Impact";
-    gCtx.textAlign="center";
-    gCtx.fillStyle  = "white";
-    gCtx.strokeStyle  = "#black";
-}
-
 function updateContextFontSize(change){
     gCurrStyle.fontSize += change;
     renderText();
