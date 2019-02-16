@@ -64,6 +64,7 @@ function toggleKeywords() {
 function onSelectImg(id) {
     let srcImg = getSelectedImg(id);
     initCanvas(srcImg);
+    toggleEditorGallery();
 }
 function filterOnType() {
     let text = document.getElementById('search-input').value;
@@ -80,7 +81,16 @@ function renderFullGallery() {
     init();
     document.getElementById('search-input').value = '';
 }
-
-
+function toggleEditorGallery() {
+    var search = document.querySelector('.search-panel');
+    var gallery = document.querySelector('.gallery-container');
+    var editor = document.querySelector('.editor-container');
+    search.classList.toggle('hidden');
+    search.classList.toggle('flex');
+    gallery.classList.toggle('hidden');
+    gallery.classList.toggle('flex');
+    editor.classList.toggle('flex');
+    editor.classList.toggle('hidden');
+}
 
 //

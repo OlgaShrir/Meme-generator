@@ -153,7 +153,7 @@ form input::-webkit-calendar-picker-indicator {
 .keyword {
     margin: 5px;
 
-    
+
 }
 
 main {
@@ -254,7 +254,17 @@ main {
     border-radius: 50%;
 
 }
+@media (max-width: 980px) {
+    .team-member {
+        max-width: 800px; 
+        width:100%;
+    } 
+}
+@media (max-width: 740px) {
+    .team-member {
+        width: 100%; } 
 
+}
 
 /*HELPERS*/
 
