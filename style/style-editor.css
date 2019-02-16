@@ -18,8 +18,10 @@ canvas {
 }
 
 
-/* Helper */
-/* flex */
-.flex {
-    display: flex;
+.download {
+    text-decoration: none;
+    border: 1px solid rgba(238, 238, 238, 0.185);
+    padding: 5px;
+    display: inline-block;
+    color: black;
 }
