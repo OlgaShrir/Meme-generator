@@ -38,7 +38,6 @@ function getKeywordImg(id) {
 }
 
 function getSelectedImg(id) {
-
     var selectedImg = gImgs.find(function(img) {
         return img.id === +id;
     })

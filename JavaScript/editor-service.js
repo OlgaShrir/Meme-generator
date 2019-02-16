@@ -3,11 +3,14 @@
 var gText = {top: '', bottom: ''};
 var gCanvas = document.querySelector('#canvas');
 var gCurrStyle = { 
-                top: {fontSize: 50, textAlign: 'center', fillStyle: 'white', strokeStyle: '#000000'},
-                bottom: {fontSize: 50, textAlign: 'center', fillStyle: 'white', strokeStyle: '#000000'} 
+                top: {fontSize: 50, fillStyle: 'white', strokeStyle: '#000000'},
+                bottom: {fontSize: 50, fillStyle: 'white', strokeStyle: '#000000'}, 
+                mid: {fontSize: 50, fillStyle: 'white', strokeStyle: '#000000'} 
             };
 var gCoords = { top: {x: 0, y: 0},
-                bottom: {x: 0, y: 0} }
+                bottom: {x: 0, y: 0},
+                mid: {x: 0, y: 0}
+             }
 
 var gCtx;
 var gCurrImgUrl;
@@ -15,10 +18,6 @@ var gCurrImgUrl;
 
 function updateContextFontSize(change, location){
     gCurrStyle[location].fontSize += change;
-    renderText(location);
-}
-function updatePosition(pos,location){
-    gCurrStyle[location].textAlign = pos;
     renderText(location);
 }
 function updateColor(col, location){
@@ -47,9 +46,7 @@ function getCurrImgUrl(){
 function getNewFontSize(location){
     return gCurrStyle[location].fontSize;
 }
-function getNewTextAlign(location){
-    return gCurrStyle[location].textAlign;
-}
+
 function getNewFillStyle(location){
     return gCurrStyle[location].fillStyle;
 }
