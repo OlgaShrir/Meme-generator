@@ -9,9 +9,10 @@ var gKeywords = [
     {name: 'movie', rate: 1, imgs: [7, 11, 12, 20, 21,23, 0, 19]},
     {name: 'emotion', rate: 4, imgs: [2, 5, 8, 9, 10, 14, 15, 17, 23]},
 ];
-var gImgs = [];
+var gImgs;
 
 function createImgs() {
+    gImgs = [];
     for (let i = 0; i < 25; i++) {
         var img = {
             id: i,
@@ -34,33 +35,17 @@ function getKeywordImg(id) {
 
 function getSelectedImg(id) {
 
-    // if this is the second picture selection from the gallery
-    if (gCurrImgUrl !== undefined) backToDefault();
-
     var selectedImg = gImgs.find(function(img) {
         return img.id === +id;
     })
     return selectedImg.url;
 }
 
-function backToDefault(){
-    // delete input text when select another picture
-    document.querySelector('.textTop').value = ''
-    document.querySelector('.textBottom').value = ''
-
-    // default font styles
-    gCurrStyle = {fontSize: 50, textAlign: 'center', fillStyle: 'white', strokeStyle: '#000000'}
-    
-    // back to black font-color and white stroke-color after chosing new img from the gallery
-    document.querySelector('#color-choice').value = "#ffffff";
-    document.querySelector('#stroke-color-choice').value="#000000";
-}
-
-function getSelectedImgs(ids) {
-    var selectedImgs = gImgs.filter(function(img) {
+function getFilteredImgs(ids) {
+    var filteredImgs = gImgs.filter(function(img) {
         if (ids.includes(img.id)) return img;
     })
-    return selectedImgs;
+    return filteredImgs;
 }
 
 function getImgsByKeyword(name) {
@@ -68,4 +53,18 @@ function getImgsByKeyword(name) {
         return word.name === name;
     })
     return keyword.imgs;
+}
+
+function getImgsByText(text) {
+    // debugger;
+    idsOfImgs = [];
+    var keywords = gKeywords.filter(function(word) {
+        return word.name.includes(text);
+    })
+    keywords.forEach(function(word){
+        word.imgs.forEach(function(id){
+            if(!idsOfImgs.includes(id)) idsOfImgs.push(id);
+        })
+    })
+    return idsOfImgs;
 }

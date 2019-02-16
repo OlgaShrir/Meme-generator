@@ -1,10 +1,24 @@
 'use strict'
 
 function initCanvas(imgUrl) {
+    // if this is the second picture selection from the gallery
+    if (gCurrImgUrl !== undefined) backToDefault();
     gCurrImgUrl = imgUrl;
     gCanvas = document.querySelector('#canvas');
     gCtx = gCanvas.getContext('2d');
     renderCanvas(imgUrl);
+}
+function backToDefault(){
+    // delete input text when select another picture
+    document.querySelector('.textTop').value = ''
+    document.querySelector('.textBottom').value = ''
+
+    // default font styles
+    gCurrStyle = {fontSize: 50, textAlign: 'center', fillStyle: 'white', strokeStyle: '#000000'}
+    
+    // back to black font-color and white stroke-color after chosing new img from the gallery
+    document.querySelector('#color-choice').value = "#ffffff";
+    document.querySelector('#stroke-color-choice').value="#000000";
 }
 
 function renderCanvas(imgUrl) {
@@ -17,6 +31,7 @@ function renderCanvas(imgUrl) {
     // line gCurrStyle = {fontSize: 50, textAlign: 'center', fillStyle: 'white', strokeStyle: '#000000'}
     // allows us to not tou use initContext function
     // initContext();  
+    initContext();
     gCtx.drawImage(elImgCanvas, 0, 0);
 }
 
@@ -30,6 +45,7 @@ function renderText() {
     text.bottom = document.querySelector('.textBottom').value;
 
     updateStyle();
+
     // write top text
     gCtx.fillText(text.top, gCanvas.width / 2, gCurrStyle.fontSize);
     gCtx.strokeText(text.top, gCanvas.width / 2, gCurrStyle.fontSize);
