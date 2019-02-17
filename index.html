@@ -44,7 +44,7 @@
             <div class="keywords flex wrap hidden"></div>
         </section>
 
-        <aside id="contacts">
+        <aside id="contacts" class="hidden">
             <contact class="contact flex column">
                 <h4>Contact us</h4>
                 Name:
@@ -61,14 +61,14 @@
             <div class="gallery flex wrap"></div>
         </section>
     </main>
-    <section class="editor-container hidden">
+    <section id="gallery" class="editor-container hidden">
         <div class="canvas-container flex">
             <canvas id="canvas" onmousemove="onMouseMove(event)" onmousedown="onMouseDown(event)"
                 onmouseup="onMouseUp()"></canvas>
             <img class="img-canvas" src="" hidden alt="">
         </div>
         <div class="editor-panel flex">
-            <button onclick="toggleEditorGallery()">Back to Gallery</button>
+            <button class="back-to-gallery" onclick="toggleEditorGallery()">Back to Gallery</button>
             <div class="input-top flex edit-line">
                 <input type="text" class="text-top line" onkeyup="renderText('top')"
                     placeholder="type your text here..">

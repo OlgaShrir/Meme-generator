@@ -25,7 +25,7 @@ function renderKeywordsAndSearch() {
         let size = word.rate * 3 + 16;
         let style = `style="font-size:${size}px;`
         if (size>20) style += ` font-weight:bold`;
-        strHtmlKeywords += `<div class='keyword ${word.name}' ${style}" onclick="renderFilteredImgs('${word.name}',[${word.imgs}])"><p>${word.name}</p></div>`;
+        strHtmlKeywords += `<div class='keyword ${word.name}' ${style}" onclick="renderFilteredImgs('${word.name}',[${word.imgs}])">${word.name}</div>`;
         strHtmlSearch += `<option value="${word.name}">${word.name}`
     });
     elKeyWords.innerHTML = strHtmlKeywords;
@@ -95,13 +95,9 @@ function toggleEditorGallery() {
 
 function toggleContact(){
     var contacts = document.getElementById('contacts')
-
-    if (contacts.style.display === "none") {
-        contacts.style.display = "block"
-    }
-    else {
-        contacts.style.display = "none"
-    } 
+    contacts.classList.toggle('hidden')
+    contacts.classList.toggle('flex')
+    
 }
 
 function onSumbit(){
