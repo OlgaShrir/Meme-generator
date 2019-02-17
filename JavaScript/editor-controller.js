@@ -87,6 +87,7 @@ function renderTextTop(text) {
     var coords = getGCoords();
     var width = gCtx.measureText(text).width;
     updateGCoords('top', width);
+    console.log(width)
     gCtx.fillText(text, coords.top.x, coords.top.y);
     gCtx.strokeText(text, coords.top.x, coords.top.y);
 }
