@@ -31,6 +31,9 @@ button, input {
     outline: none;
 }
 header {
+    position: sticky;
+    top:0;
+    left:0;
     height: 10vh;
     background-color: rgb(89, 89, 150);
     align-items: center;
@@ -352,4 +355,5 @@ footer{
     background-color: rgb(89, 89, 150);
     align-items: center;
     justify-content: center;
+    padding: 10px;
 }

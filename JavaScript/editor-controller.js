@@ -16,11 +16,7 @@ function backToDefault() {
     document.querySelector('.text-bottom').value = '';
 
     // default font styles
-    gCurrStyle = {
-        top: { fontSize: 50, textAlign: 'center', fillStyle: '#ffffff', strokeStyle: '#000000' },
-        mid: { fontSize: 50, textAlign: 'center', fillStyle: '#ffffff', strokeStyle: '#000000' },
-        bottom: { fontSize: 50, textAlign: 'center', fillStyle: '#ffffff', strokeStyle: '#000000' }
-    };
+    defaultStyle();
 
     // back to black font-color and white stroke-color after chosing new img from the gallery
     document.querySelector('#color-choice-top').value = gCurrStyle.top.fillStyle;
@@ -92,6 +88,7 @@ function renderTextMid(text) {
     gCtx.strokeText(text, coords.mid.x, coords.mid.y);
 }
 function renderTextBottom(text) {
+    // debugger;
     updateStyle('bottom');
     var coords = getGCoords();
     var width = gCtx.measureText(text).width;
@@ -117,11 +114,15 @@ function onChangeStroke(id, location) {
 function onChangeAlign(align, location) {
     updateAlign(align, location);
 }
+function onChangeFontFam(fFam, location) {
+    updateFFam(fFam, location);
+}
 function updateStyle(location) {
     let size = getNewFontSize(location);
     let fill = getNewFillStyle(location);
     let stroke = getNewStrokeStyle(location);
-    gCtx.font = `${size}px Impact`;
+    let family = getNewfFamily(location);
+    gCtx.font = `${size}px ${family}`;
     gCtx.fillStyle = `${fill}`;
     gCtx.strokeStyle = `${stroke}`;
     gCtx.textAlign = `center`;
@@ -147,8 +148,11 @@ function onMouseDown(ev) {
     let x = ev.offsetX;
     let y = ev.offsetY;
     let boxToMove = isClickedBox(x,y);
+    console.log(x,y);
+    
     if (boxToMove) {
         setMovecoords(x,y);
+        console.log('!');
     }
     else return;
 }
@@ -157,6 +161,7 @@ function onMouseMove(ev) {
     let locMoved = moveCoords.name;
     let coords = getGCoords();
     if (!locMoved) return;
+    // debugger;
     let x = ev.offsetX;
     let y = ev.offsetY;
     let diffX = x - moveCoords.x;

@@ -75,7 +75,10 @@
             <img class="img-canvas" src="" hidden alt="">
         </div>
         <div class="editor-panel flex">
-            <button class="back-to-gallery" onclick="toggleEditorGallery()">Back to Gallery</button>
+            <div class="btns-top-editor flex">
+                <button class="back-to-gallery" onclick="toggleEditorGallery()">Back to Gallery</button>
+                <button class="addLine-btn" onclick="addLine()">Add Line</button>
+            </div>
             <div class="input-top flex edit-line">
                 <input type="text" class="text-top line" onkeyup="renderText('top')"
                     placeholder="type your text here..">
@@ -121,7 +124,6 @@
                     </div>
                 </div>
             </div>
-            <button class="addLine-btn" onclick="addLine()">Add Line</button>
             <div class="input-mid hidden edit-line">
                 <input type="text" class="text-mid line" onkeyup="renderText('mid')"
                     placeholder="type your text here..">

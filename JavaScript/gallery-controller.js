@@ -9,7 +9,7 @@ function renderGallery(imgs) {
     let elGallery = document.querySelector('.gallery');
     let strHtml = ``;
     imgs.forEach(function(img) {
-        strHtml += `<div id="${img.id}" class="gallery-item" onclick="onSelectImg(this.id)"><img src="${img.url}"></img></div>`;
+        strHtml += `<div id="${img.id}" class="gallery-item" onclick="onSelectImg(event,this.id)"><img src="${img.url}"></img></div>`;
     });
     elGallery.innerHTML = strHtml;
 }
@@ -61,7 +61,8 @@ function toggleKeywords() {
         renderKWBtn.innerText = 'Categories';
     }
 }
-function onSelectImg(id) {
+function onSelectImg(ev, id) {
+    ev.stopPropagation();
     let srcImg = getSelectedImg(id);
     initCanvas(srcImg);
     toggleEditorGallery();
@@ -94,12 +95,9 @@ function toggleEditorGallery() {
 }
 
 function toggleContact(){
-    var contact = document.querySelector('.contact-form')
-    contact.classList.toggle('hidden')
-    contact.classList.toggle('flex')
-
-    var screen = document.querySelector('.screen')
-    screen.classList.toggle('open');
+    var contacts = document.getElementById('contacts')
+    contacts.classList.toggle('hidden')
+    contacts.classList.toggle('flex')
 }
 
 
