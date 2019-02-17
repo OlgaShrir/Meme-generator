@@ -98,8 +98,7 @@ function toggleContact(){
     var contacts = document.getElementById('contacts')
     contacts.classList.toggle('hidden')
     contacts.classList.toggle('flex')
-
- }
+}
 
 function onSumbit(){
     var name = document.querySelector('.name').value;

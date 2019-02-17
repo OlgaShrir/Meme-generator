@@ -1,6 +1,5 @@
 .editor-container {
     justify-content: space-evenly;
-
 }
 
 .canvas-container {
@@ -11,14 +10,13 @@
 canvas {
     border: 1px solid black;
     margin: 10px;
-    /* width: 100%; */
-    /* height: 60%; */
+    width: 100%;
+    height: auto;
 }
 
 .editor-panel {
     width: 50%;
     height: 100%;
-    /* background-color: darksalmon; */
     margin: 10px;
     flex-direction: column;
 }
