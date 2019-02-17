@@ -93,4 +93,23 @@ function toggleEditorGallery() {
     editor.classList.toggle('hidden');
 }
 
-//
+function toggleContact(){
+    var contacts = document.getElementById('contacts')
+
+    if (contacts.style.display === "none") {
+        contacts.style.display = "block"
+    }
+    else {
+        contacts.style.display = "none"
+    } 
+}
+
+function onSumbit(){
+    var name = document.querySelector('.name').value;
+    var subject = document.querySelector('.subject').value;
+    var message = document.querySelector('.message').value;
+    var myEmail = `olga.shrir@gmail.com`
+
+    var url = `https://mail.google.com/mail/?view=cm&fs=1&to=${myEmail}&su=${subject}-${name}&body=${message}`;
+    window.open(url,'_blank')
+}
