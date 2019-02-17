@@ -9,9 +9,9 @@ function initCanvas(imgUrl) {
     gCtx = gCanvas.getContext('2d');
     renderCanvas(imgUrl);
     gCoords = {
-        top: { x: gCanvas.width / 2, y: (gCurrStyle.top.fontSize) },
-        mid: { x: gCanvas.width / 2, y: gCanvas.height / 2},
-        bottom: { x: gCanvas.width / 2, y: (gCanvas.height - 10) }
+        top: { x: gCanvas.width / 2, y: (gCurrStyle.top.fontSize), width: 0, box: {x: {min: 0, max:0}, y:{min:0, max:0}}, move: false},
+        mid: { x: gCanvas.width / 2, y: gCanvas.height / 2, width: 0, box: {x: {min: 0, max:0}, y:{min:0, max:0}}, move: false},
+        bottom: { x: gCanvas.width / 2, y: (gCanvas.height - 10), width: 0, box: {x: {min: 0, max:0}, y:{min:0, max:0}}, move: false}
     }
 }
 function backToDefault() {
@@ -46,17 +46,13 @@ function renderCanvas(imgUrl) {
     gCtx.drawImage(elImgCanvas, 0, 0);
 
 }
-
-// text
 function renderText() {
     let url = getCurrImgUrl();
     var text = getGText();
     renderCanvas(url);
-    // text settings
     text.top = document.querySelector('.text-top').value;
     text.mid = document.querySelector('.text-mid').value;
     text.bottom = document.querySelector('.text-bottom').value;
-
     renderTextTop(text.top);
     renderTextBottom(text.bottom);
     if (text.mid !== '') renderTextMid(text.mid);
@@ -64,7 +60,6 @@ function renderText() {
 
 function onMoveText(direction, location) {
     var coords = getGCoords();
-    console.log(location);
     switch (direction) {
         case 'up':
             coords[location].y -= 10;
@@ -87,6 +82,8 @@ function onMoveText(direction, location) {
 function renderTextTop(text) {
     updateStyle('top');
     var coords = getGCoords();
+    var width = gCtx.measureText(text).width;
+    updateGCoords('top', width);
     gCtx.fillText(text, coords.top.x, coords.top.y);
     gCtx.strokeText(text, coords.top.x, coords.top.y);
 }
@@ -94,12 +91,16 @@ function renderTextTop(text) {
 function renderTextMid(text) {
     updateStyle('mid');
     var coords = getGCoords();
+    var width = gCtx.measureText(text).width;
+    updateGCoords('mid', width);
     gCtx.fillText(text, coords.mid.x, coords.mid.y);
     gCtx.strokeText(text, coords.mid.x, coords.mid.y);
 }
 function renderTextBottom(text) {
     updateStyle('bottom');
     var coords = getGCoords();
+    var width = gCtx.measureText(text).width;
+    updateGCoords('bottom', width);
     gCtx.fillText(text, coords.bottom.x, coords.bottom.y);
     gCtx.strokeText(text, coords.bottom.x, coords.bottom.y);
 }
@@ -139,6 +140,43 @@ function addLine() {
     if (!line.classList.contains('hidden')) {
         btn.innerText = 'Delete middle line';
         document.querySelector('.text-mid').value = '';
-    }else btn.innerText = 'Add line';
-    // line.classList.toggle('flex');
+    }else {
+        btn.innerText = 'Add line';
+        renderText();
+    }
+}
+function onMouseDown(ev) {
+    let x = ev.offsetX;
+    let y = ev.offsetY;
+    let boxToMove = isClickedBox(x,y);
+    if (boxToMove) {
+        setMovecoords(x,y);
+    }
+    else return;
+}
+function onMouseMove(ev) {
+    let moveCoords = getMoveCoords();
+    let locMoved = moveCoords.name;
+    let coords = getGCoords();
+    if (!locMoved) return;
+    let x = ev.offsetX;
+    let y = ev.offsetY;
+    let diffX = x - moveCoords.x;
+    let diffY = y - moveCoords.y;
+    moveCoords.x = x;
+    moveCoords.y = y;
+    coords[locMoved].x += diffX;
+    coords[locMoved].y += diffY;
+    renderText();
+}
+function onMouseUp() {
+    let locMoved = getMoveCoords().name;
+    let coords = getGCoords();
+    if (!coords[locMoved]) return;
+    else {
+        coords[locMoved].move = false;
+        gMoveCoords.x = 0;
+        gMoveCoords.y = 0;
+        gMoveCoords.name = 0;
+    }
 }
