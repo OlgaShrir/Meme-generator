@@ -1,20 +1,17 @@
 .editor-container {
     justify-content: space-evenly;
+    width: 100vw;
+    background-color: #d3d8f2;
 }
 
 .canvas-container {
     justify-content: flex-start;
     align-items: flex-start;
-}
-
-canvas {
-    border: 1px solid black;
-    margin: 10px;
-    /* width: 100%; */
+    padding: 20px;
+    width: 500px;
 }
 
 .editor-panel {
-    width: 50%;
     height: 100%;
     margin: 10px;
     flex-direction: column;
@@ -27,26 +24,28 @@ canvas {
     margin-right: 0.5rem;
     background-color: rgb(196, 196, 247);
 }
-
 .editor-panel {
     align-items: center;
 }
-
 .back-to-gallery,
 .addLine-btn {
-    color: rgb(89, 89, 150);
-    background-color: #d3d8f2;
-    /* border-radius: 15px; */
-    /* height: 100%; */
     max-width: 200px;
-    height: 50px;
+    align-items: center;
+    justify-content: space-evenly;
+    height: 7vh;
+    margin: 2px;
+    color: white;
+    font-size: 1.2em;
+    background-color: rgb(89, 89, 150);
+    border-radius: 15px;
+    max-height: 50px;
     margin-right: 5px;
     cursor: pointer;
 }
 
 .back-to-gallery:hover,
 .addLine-btn:hover {
-    border: 4px solid rgb(89, 89, 150);
+    border: 3px solid rgb(89, 89, 150);
 }
 
 .text-top {
@@ -56,27 +55,39 @@ canvas {
 .edit-line {
     flex-direction: column;
     margin: 10px;
+    border: 1px solid rgb(89, 89, 150);
+    padding: 7px;
 }
 .line {
     width: 100%;
-    height: 10vh;
-    font-size: 8vh;
+    height: 4vh;
+    font-size: 3vh;
 }
 .line:focus {
-    border: 2px solid rgb(89, 89, 150);
+    border: 3px solid rgb(89, 89, 150);
 }
 .edit-btns-1, 
 .edit-btns-2 {
     align-items: center;
     justify-content: space-evenly;
-    height: 10vh;
+    height: 6vh;
     margin: 2px;
+    cursor: pointer;
 }
 .edit-btns-1 button:hover,
 .edit-btns-2 button:hover {
     background-color: rgb(196, 196, 247);
+
+}
+.font-family {
+    display: flex;
+    align-items: center;
 }
 
+.edit-btns-2>* {
+    margin: 3px;
+    height: 10px;
+}
 .font-size-btns button {
     margin: 5px;
     align-items: center;
@@ -92,8 +103,8 @@ canvas {
     text-decoration: none;
     padding: 5px;
     display: inline-block;
-    color: black;
-    font-size: 50px;
+    color: rgb(89, 89, 150);
+    font-size: 1.5em;
 }
 
 @media (max-width: 960px) {
@@ -101,8 +112,8 @@ canvas {
         flex-direction: column;
     } 
     .canvas-container{
-        width: 100%;
-        justify-content: center;
+        width: 90%;
+        align-items: center;
     }
     .editor-panel{
         width: 100%;

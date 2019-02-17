@@ -17,10 +17,12 @@ var gCurrImgUrl;
 var gMoveCoords = {x:0, y:0, name: 0};
 
 function createStartGCoords() {
+    console.log(gCanvas.width)
+    console.log(gCanvas.height)
     gCoords = {
         top: { x: gCanvas.width / 2, y: (gCurrStyle.top.fontSize), width: 0, box: {x: {min: 0, max:0}, y:{min:0, max:0}}, move: false},
         mid: { x: gCanvas.width / 2, y: gCanvas.height / 2, width: 0, box: {x: {min: 0, max:0}, y:{min:0, max:0}}, move: false},
-        bottom: { x: gCanvas.width / 2, y: (gCanvas.height - 10), width: 0, box: {x: {min: 0, max:0}, y:{min:0, max:0}}, move: false}
+        bottom: { x: gCanvas.width / 2, y: (gCanvas.height)-15, width: 0, box: {x: {min: 0, max:0}, y:{min:0, max:0}}, move: false}
     }
 }
 function defaultStyle() {
