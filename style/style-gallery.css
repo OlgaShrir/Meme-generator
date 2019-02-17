@@ -5,6 +5,27 @@ body {
     margin: 0;
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif
 }
+
+.screen{
+    position:fixed;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background: #000;
+    background: rgba(0, 0, 0, 0.35);
+    visibility: hidden;
+    opacity: 0;
+    cursor: pointer;
+
+    transition: opacity .3s;
+}
+
+.open {
+    visibility: visible;
+    opacity: 1;
+}
+
 /*HEADER*/
 button, input {
     outline: none;
@@ -176,7 +197,6 @@ main {
         height: unset;
         columns: 3;
     }
-
 }
 
 .editor-panel {
@@ -198,7 +218,6 @@ main {
     border: 4px solid rgb(89, 89, 150);
 }
 
-
 .gallery {
     width: 100%;
     justify-content: space-evenly;
@@ -209,7 +228,6 @@ main {
     margin: 10px;
     cursor: pointer;
 }
-
 
 .gallery-item img {
     width: 150px;
@@ -269,25 +287,19 @@ main {
 }
 
 
-#contacts{
+.contact-form{
     background-color:#d3d8f2;
-    height: 100%;
-    width: 40vw;
-    position: fixed;
-    left: 50vw;
+    color: rgb(89, 89, 150);
+    padding: 5px;
+    position: absolute;
+    top: 20%;
+    left: 40%;
     border: 1px solid rgb(89, 89, 150);
 }
 
 p a{
     color: rgb(89, 89, 150);
 }
-
-
-.contact {
-    /* justify-content: left; */
-    padding: 10px;
-}
-
 
 #footer-div {
     align-items: center;
@@ -330,6 +342,9 @@ p a{
 }
 .column {
     flex-direction: column;
+}
+.end {
+    justify-content: flex-end;
 }
 
 footer{

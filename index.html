@@ -12,6 +12,8 @@
 </head>
 
 <body onload="init()">
+    <div class="screen"></div>
+
     <header class="flex">
         <div class="header-container flex wrap">
             <div class="title flex">
@@ -19,7 +21,7 @@
             </div>
             <div class="nav flex">
                 <div class="nav-item flex"><a href="#about">About</a></div>
-                <div class="nav-item contact flex"><a href="#contact" onclick="toggleContact()">Contact</a></div>
+                <div class="nav-item contact flex"><a onclick="toggleContact()">Contact</a></div>
             </div>
         </div>
     </header>
@@ -44,24 +46,27 @@
             <div class="keywords flex wrap hidden"></div>
         </section>
 
-        <aside id="contacts" class="hidden">
-            <contact class="contact flex column">
-                <h4>Contact us</h4>
-                Name:
+        <div id="contact">
+            <contact class="contact-form hidden flex column">
+                <div class="close flex end" onclick="toggleContact()"><i class="fas fa-times-circle"></i></div>
+                <h4 class="contact-us">Contact us</h4>
+                <p>Name:</p>
                 <input type="text" class="name" placeholder="Your name">
-                Subject:
+                <p>Subject:</p>
                 <input type="text" class="subject" placeholder="Your subject">
-                Message:
-                <textarea type="text" class="message" placeholder="Enter your message" rows="5"></textarea>
-                <button class="submit" onclick="onSumbit()">Submit</button>
+                <p>Message:</p>                
+                <textarea type="text" class="message" placeholder="Enter your message" rows="5"></textarea>                
+                <div class="submit"><button class="submit" onclick="onSumbit()">Send</button></div>
             </contact>
+        </div>
+            
         </aside>
 
         <section class="gallery-container flex">
             <div class="gallery flex wrap"></div>
         </section>
     </main>
-    <section id="gallery" class="editor-container hidden">
+    <section class="editor-container hidden">
         <div class="canvas-container flex">
             <canvas id="canvas"
             onmousemove="onMouseMove(event)" 

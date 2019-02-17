@@ -24,6 +24,10 @@ canvas {
     margin: 10px;
 }
 
+.text-top {
+    border: 1px solid rgb(89, 89, 150);
+}
+
 .edit-line {
     flex-direction: column;
     margin: 10px;
