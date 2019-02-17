@@ -95,9 +95,22 @@ function toggleEditorGallery() {
 }
 
 function toggleContact(){
-    var contacts = document.getElementById('contacts')
-    contacts.classList.toggle('hidden')
-    contacts.classList.toggle('flex')
+    var contact = document.querySelector('.contact-form')
+    if(contact.classList.contains('hidden')){
+        console.log('I have hidden')
+        contact.classList.remove('hidden')
+        contact.classList.add('flex')
+    }
+    else{
+        console.log('I have flex')
+
+        contact.classList.add('hidden')
+        contact.classList.remove('flex')
+    }
+
+    var screen = document.querySelector('.screen');
+    screen.classList.toggle('open')
+
 }
 
 
