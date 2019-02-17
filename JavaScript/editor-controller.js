@@ -1,14 +1,22 @@
 'use strict'
 
 function initCanvas(imgUrl) {
-    // if this is the second picture selection from the gallery
     if (gCurrImgUrl !== undefined) backToDefault();
+    var elImgCanvas = document.querySelector('.img-canvas');
+    var elCon = document.querySelector('.canvas-container');
+    elImgCanvas.src = imgUrl;
     gCurrImgUrl = imgUrl;
     gCanvas = document.querySelector('#canvas');
     gCtx = gCanvas.getContext('2d');
-    renderCanvas(imgUrl);
-    createStartGCoords();
+    var aspectRatio = elImgCanvas.height/elImgCanvas.width;
+    elImgCanvas.onload = function () {
+        gCanvas.width = elCon.offsetWidth;
+        gCanvas.height = elCon.offsetWidth * aspectRatio;
+        gCtx.drawImage(elImgCanvas, 0, 0, gCanvas.width, gCanvas.height);
+        createStartGCoords();
+    }
 }
+
 function backToDefault() {
     // delete input text when select another picture
     document.querySelector('.text-top').value = '';
@@ -29,12 +37,16 @@ function backToDefault() {
     addLine();
 }
 
-function renderCanvas(imgUrl) {
+function renderCanvas() {
+    // debugger;
     var elImgCanvas = document.querySelector('.img-canvas');
-    elImgCanvas.src = imgUrl;
-    gCanvas.width = elImgCanvas.width;
-    gCanvas.height = elImgCanvas.height;
-    gCtx.drawImage(elImgCanvas, 0, 0);
+    // elImgCanvas.src = imgUrl;
+    // gCanvas.width = elImgCanvas.width;
+    // gCanvas.height = elImgCanvas.height;
+    console.log(gCanvas.width, gCanvas.height);
+    
+    gCtx.drawImage(elImgCanvas, 0, 0 ,gCanvas.width, gCanvas.height);
+    
 
 }
 function renderText() {

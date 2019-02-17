@@ -62,17 +62,21 @@
         </section>
     </main>
     <section class="editor-container hidden">
-        <div class="canvas-container flex">
-            <canvas id="canvas"
-            onmousemove="onMouseMove(event)" 
-            onmousedown="onMouseDown(event)"
-            onmouseup="onMouseUp()"></canvas>
+        <div class="canvas-container" >
+            <canvas id="canvas" onmousemove="onMouseMove(event)" onmousedown="onMouseDown(event)"
+                onmouseup="onMouseUp()"></canvas>
             <img class="img-canvas" src="" hidden alt="">
+
         </div>
         <div class="editor-panel flex">
             <div class="btns-top-editor flex">
                 <button class="back-to-gallery" onclick="toggleEditorGallery()">Back to Gallery</button>
                 <button class="addLine-btn" onclick="addLine()">Add Line</button>
+                <div class="download">
+                    <a href="#" class="download" onclick="onDownload(this)" download="my-cool-meme.jpg">
+                        <i class="fas fa-download"></i>
+                    </a>
+                </div>
             </div>
             <div class="input-top flex edit-line">
                 <input type="text" class="text-top line" onkeyup="renderText('top')"
@@ -88,15 +92,6 @@
                         <button onclick="onChangeAlign('center', 'top')"><i class="fas fa-align-center"></i></button>
                         <button onclick="onChangeAlign(-1, 'top')"><i class="fas fa-align-right"></i></button>
                     </div>
-                    <div class="font-family">
-                        <select name="f-family" onclick="onChangeFontFam(this.value, 'top')">
-                            <option value="Impact">Impact</option>
-                            <option value="Ariel">Ariel</option>
-                            <option value="Verdana">Verdana</option>
-                        </select>
-                    </div>
-                </div>
-                <div class="edit-btns-2 flex">
                     <div class="move">
                         <button class="up" onclick="onMoveText('up', 'top')"><i class="fas fa-angle-double-up"></i>
                             </buttun>
@@ -107,6 +102,9 @@
                                     <button class="left" onclick="onMoveText('left', 'top')"><i
                                             class="fas fa-angle-double-left"></i></buttun>
                     </div>
+                </div>
+                <div class="edit-btns-2 flex">
+
                     <div class="color-picker">
                         Font color
                         <input id="color-choice-top" type="color" value="#ffffff"
@@ -116,6 +114,13 @@
                         Stroke color
                         <input id="stroke-color-choice-top" type="color" value="#000000"
                             onchange="onChangeStroke(this.id,'top')">
+                    </div>
+                    <div class="font-family">
+                        <select name="f-family" onclick="onChangeFontFam(this.value, 'top')">
+                            <option value="Impact">Impact</option>
+                            <option value="Ariel">Ariel</option>
+                            <option value="Verdana">Verdana</option>
+                        </select>
                     </div>
                 </div>
             </div>
@@ -133,13 +138,17 @@
                         <button onclick="onChangeAlign('center', 'mid')"><i class="fas fa-align-center"></i></button>
                         <button onclick="onChangeAlign('right', 'mid')"><i class="fas fa-align-right"></i></button>
                     </div>
-                    <div class="font-family">
-                        <select name="f-family" onclick="onChangeFontFam(this.value, 'mid')">
-                            <option value="Impact">Impact</option>
-                            <option value="Ariel">Ariel</option>
-                            <option value="Verdana">Verdana</option>
-                        </select>
+                    <div class="move">
+                        <button class="up" onclick="onMoveText('up', 'mid')"><i class="fas fa-angle-double-up"></i>
+                            </buttun>
+                            <button class="down" onclick="onMoveText('down', 'mid')"><i
+                                    class="fas fa-angle-double-down"></i></buttun>
+                                <button class="right" onclick="onMoveText('right', 'mid')"><i
+                                        class="fas fa-angle-double-right"></i></buttun>
+                                    <button class="left" onclick="onMoveText('left', 'mid')"><i
+                                            class="fas fa-angle-double-left"></i></buttun>
                     </div>
+
                 </div>
                 <div class="edit-btns-2 flex">
                     <div class="color-picker">
@@ -152,15 +161,12 @@
                         <input id="stroke-color-choice-mid" type="color" value="#000000"
                             onchange="onChangeStroke(this.id,'mid')">
                     </div>
-                    <div class="move">
-                        <button class="up" onclick="onMoveText('up', 'mid')"><i class="fas fa-angle-double-up"></i>
-                            </buttun>
-                            <button class="down" onclick="onMoveText('down', 'mid')"><i
-                                    class="fas fa-angle-double-down"></i></buttun>
-                                <button class="right" onclick="onMoveText('right', 'mid')"><i
-                                        class="fas fa-angle-double-right"></i></buttun>
-                                    <button class="left" onclick="onMoveText('left', 'mid')"><i
-                                            class="fas fa-angle-double-left"></i></buttun>
+                    <div class="font-family">
+                        <select name="f-family" onclick="onChangeFontFam(this.value, 'mid')">
+                            <option value="Impact">Impact</option>
+                            <option value="Ariel">Ariel</option>
+                            <option value="Verdana">Verdana</option>
+                        </select>
                     </div>
                 </div>
             </div>
@@ -178,14 +184,17 @@
                         <button onclick="onChangeAlign('center', 'bottom')"><i class="fas fa-align-center"></i></button>
                         <button onclick="onChangeAlign('right', 'bottom')"><i class="fas fa-align-right"></i></button>
                     </div>
-                    <div class="font-family">
-                            <select name="f-family" onclick="onChangeFontFam(this.value, 'bottom')">
-                                <option value="Impact">Impact</option>
-                                <option value="Ariel">Ariel</option>
-                                <option value="Verdana">Verdana</option>
-                            </select>
-                        </div>
-               </div>
+                    <div class="move">
+                        <button class="up" onclick="onMoveText('up', 'bottom')"><i class="fas fa-angle-double-up"></i>
+                            </buttun>
+                            <button class="down" onclick="onMoveText('down', 'bottom')"><i
+                                    class="fas fa-angle-double-down"></i></buttun>
+                                <button class="right" onclick="onMoveText('right', 'bottom')"><i
+                                        class="fas fa-angle-double-right"></i></buttun>
+                                    <button class="left" onclick="onMoveText('left', 'bottom')"><i
+                                            class="fas fa-angle-double-left"></i></buttun>
+                    </div>
+                </div>
                 <div class="edit-btns-2 flex">
                     <div class="color-picker">
                         Font Color
@@ -197,23 +206,16 @@
                         <input id="stroke-color-choice-bottom" type="color" value="#000000"
                             onchange="onChangeStroke(this.id,'bottom')">
                     </div>
-                    <div class="move">
-                            <button class="up" onclick="onMoveText('up', 'bottom')"><i class="fas fa-angle-double-up"></i>
-                                </buttun>
-                                <button class="down" onclick="onMoveText('down', 'bottom')"><i
-                                        class="fas fa-angle-double-down"></i></buttun>
-                                    <button class="right" onclick="onMoveText('right', 'bottom')"><i
-                                            class="fas fa-angle-double-right"></i></buttun>
-                                        <button class="left" onclick="onMoveText('left', 'bottom')"><i
-                                                class="fas fa-angle-double-left"></i></buttun>
-                        </div>
+                    <div class="font-family">
+                        <select name="f-family" onclick="onChangeFontFam(this.value, 'bottom')">
+                            <option value="Impact">Impact</option>
+                            <option value="Ariel">Ariel</option>
+                            <option value="Verdana">Verdana</option>
+                        </select>
+                    </div>
                 </div>
             </div>
-            <div class="download">
-                <a href="#" class="download" onclick="onDownload(this)" download="my-cool-meme.jpg">
-                    <i class="fas fa-download"></i>
-                </a>
-            </div>
+            
         </div>
         </div>
 
