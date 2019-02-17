@@ -151,7 +151,7 @@ form input::-webkit-calendar-picker-indicator {
     color: rgb(89, 89, 150);
 }
 .keyword {
-    margin: 5px;
+    /* margin: 5px; */
 
 
 }
@@ -254,6 +254,41 @@ main {
     border-radius: 50%;
 
 }
+
+#contacts{
+    display: none;
+    background-color:#d3d8f2;
+    height: 100%;
+    width: 40vw;
+    position: fixed;
+    left: 50vw;
+    border: 1px solid rgb(89, 89, 150);
+}
+
+p a{
+    color: rgb(89, 89, 150);
+}
+
+
+.contact {
+    /* justify-content: left; */
+    padding: 10px;
+}
+
+
+#footer-div {
+    align-items: center;
+    color: white;
+    justify-content: space-between;
+    width: 980px;
+    max-width: 980px;
+    font-size: 1.6em;
+}
+
+#footer-div a{
+    color: white;
+}
+
 @media (max-width: 980px) {
     .team-member {
         max-width: 800px; 
@@ -280,4 +315,13 @@ main {
 .hidden {
     display: none;
 }
+.column {
+    flex-direction: column;
+}
 
+footer{
+    width: 100%;
+    background-color: rgb(89, 89, 150);
+    align-items: center;
+    justify-content: center;
+}
