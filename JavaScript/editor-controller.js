@@ -3,16 +3,11 @@
 function initCanvas(imgUrl) {
     // if this is the second picture selection from the gallery
     if (gCurrImgUrl !== undefined) backToDefault();
-
     gCurrImgUrl = imgUrl;
     gCanvas = document.querySelector('#canvas');
     gCtx = gCanvas.getContext('2d');
     renderCanvas(imgUrl);
-    gCoords = {
-        top: { x: gCanvas.width / 2, y: (gCurrStyle.top.fontSize), width: 0, box: {x: {min: 0, max:0}, y:{min:0, max:0}}, move: false},
-        mid: { x: gCanvas.width / 2, y: gCanvas.height / 2, width: 0, box: {x: {min: 0, max:0}, y:{min:0, max:0}}, move: false},
-        bottom: { x: gCanvas.width / 2, y: (gCanvas.height - 10), width: 0, box: {x: {min: 0, max:0}, y:{min:0, max:0}}, move: false}
-    }
+    createStartGCoords();
 }
 function backToDefault() {
     // delete input text when select another picture
@@ -84,6 +79,7 @@ function renderTextTop(text) {
     var coords = getGCoords();
     var width = gCtx.measureText(text).width;
     updateGCoords('top', width);
+    console.log(width)
     gCtx.fillText(text, coords.top.x, coords.top.y);
     gCtx.strokeText(text, coords.top.x, coords.top.y);
 }
@@ -118,6 +114,9 @@ function onChangeColor(id, location) {
 function onChangeStroke(id, location) {
     let colorStroke = document.getElementById(id).value;
     updateStroke(colorStroke, location);
+}
+function onChangeAlign(align, location) {
+    updateAlign(align, location);
 }
 function updateStyle(location) {
     let size = getNewFontSize(location);
@@ -180,3 +179,4 @@ function onMouseUp() {
         gMoveCoords.name = 0;
     }
 }
+

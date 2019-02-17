@@ -8,6 +8,7 @@
     <title>Meme Generator</title>
     <link rel="stylesheet" href="style/style-editor.css">
     <link rel="stylesheet" href="style/style-gallery.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css">
 </head>
 
 <body onload="init()">
@@ -46,43 +47,79 @@
             <div class="gallery flex wrap"></div>
             <aside></aside>
         </section>
-
-        <section class="editor-container hidden">
-            <div class="canvas-container">
-                <canvas id="canvas" onmousemove="onMouseMove(event)" onmousedown="onMouseDown(event)" onmouseup="onMouseUp()"></canvas>
-                <img class="img-canvas" src="" hidden alt="">
-            </div>
-            <div class="editor-panel flex">
-                <button onclick="toggleEditorGallery()">Back to Gallery</button>
-
-                <div class="input-top">
-                    Line 1:
-                    <input type="text" class="text-top" onkeyup="renderText('top')">
-                        <button onclick="onChangeFontSize(10, 'top')">+</button>
-                            <button onclick="onChangeFontSize(-10, 'top')">-</button>
+    </main>
+    <section class="editor-container hidden">
+        <div class="canvas-container flex">
+            <canvas id="canvas" onmousemove="onMouseMove(event)" onmousedown="onMouseDown(event)"
+                onmouseup="onMouseUp()"></canvas>
+            <img class="img-canvas" src="" hidden alt="">
+        </div>
+        <div class="editor-panel flex">
+            <button onclick="toggleEditorGallery()">Back to Gallery</button>
+            <div class="input-top flex edit-line">
+                <input type="text" class="text-top line" onkeyup="renderText('top')"
+                    placeholder="type your text here..">
+                <div class="edit-btns-1 flex">
+                    <div class="font-size-btns flex">
+                        <button onclick="onChangeFontSize(10, 'top')"><i class="fas fa-plus"></i></button>
+                        <i class="fas fa-text-height"></i>
+                        <button onclick="onChangeFontSize(-10, 'top')"><i class="fas fa-minus"></i></button>
+                    </div>
+                    <div class="align">
+                        <button onclick="onChangeAlign('left', 'top')"><i class="fas fa-align-left"></i></button>
+                        <button onclick="onChangeAlign('center', 'top')"><i class="fas fa-align-center"></i></button>
+                        <button onclick="onChangeAlign(-1, 'top')"><i class="fas fa-align-right"></i></button>
+                    </div>
+                    <div class="move">
+                        <button class="up" onclick="onMoveText('up', 'top')"><i class="fas fa-angle-double-up"></i>
+                            </buttun>
+                            <button class="down" onclick="onMoveText('down', 'top')"><i
+                                    class="fas fa-angle-double-down"></i></buttun>
+                                <button class="right" onclick="onMoveText('right', 'top')"><i
+                                        class="fas fa-angle-double-right"></i></buttun>
+                                    <button class="left" onclick="onMoveText('left', 'top')"><i
+                                            class="fas fa-angle-double-left"></i></buttun>
+                    </div>
+                </div>
+                <div class="edit-btns-2 flex">
                     <div class="color-picker">
-                        Font Color
+                        Font color
                         <input id="color-choice-top" type="color" value="#ffffff"
                             onchange="onChangeColor(this.id,'top')">
                     </div>
                     <div class="color-picker stroke">
-                        Stroke Color
+                        Stroke color
                         <input id="stroke-color-choice-top" type="color" value="#000000"
                             onchange="onChangeStroke(this.id,'top')">
                     </div>
+                </div>
+            </div>
+            <button class="addLine-btn" onclick="addLine()">Add Line</button>
+            <div class="input-mid hidden edit-line">
+                <input type="text" class="text-mid line" onkeyup="renderText('mid')"
+                    placeholder="type your text here..">
+                <div class="edit-btns-1 flex">
+                    <div class="font-size-btns flex">
+                        <button onclick="onChangeFontSize(10, 'mid')"><i class="fas fa-plus"></i></button>
+                        <i class="fas fa-text-height"></i>
+                        <button onclick="onChangeFontSize(-10, 'mid')"><i class="fas fa-minus"></i></button>
+                    </div>
+                    <div class="align">
+                        <button onclick="onChangeAlign('left', 'mid')"><i class="fas fa-align-left"></i></button>
+                        <button onclick="onChangeAlign('center', 'mid')"><i class="fas fa-align-center"></i></button>
+                        <button onclick="onChangeAlign('right', 'mid')"><i class="fas fa-align-right"></i></button>
+                    </div>
                     <div class="move">
-                        <button class="up" onclick="onMoveText('up', 'top')">up</buttun>
-                            <button class="down" onclick="onMoveText('down', 'top')">down</buttun>
-                                <button class="right" onclick="onMoveText('right', 'top')">right</buttun>
-                                    <button class="left" onclick="onMoveText('left', 'top')">left</buttun>
+                        <button class="up" onclick="onMoveText('up', 'mid')"><i class="fas fa-angle-double-up"></i></buttun>
+                            <button class="down" onclick="onMoveText('down', 'mid')"><i
+                                class="fas fa-angle-double-down"></i></buttun>
+                                <button class="right" onclick="onMoveText('right', 'mid')"><i
+                                    class="fas fa-angle-double-right"></i></buttun>
+                                    <button class="left" onclick="onMoveText('left', 'mid')"><i
+                                        class="fas fa-angle-double-left"></i></buttun>
                     </div>
                 </div>
-                <button class="addLine-btn" onclick="addLine()">Add Line</button>
-                <div class="input-mid hidden">
-                    Additional line:
-                    <input type="text" class="text-mid" onkeyup="renderText('mid')">
-                        <button onclick="onChangeFontSize(10, 'mid')">+</button>
-                            <button onclick="onChangeFontSize(-10, 'mid')">-</button>
+                <div class="edit-btns-2 flex">
                     <div class="color-picker">
                         Font Color
                         <input id="color-choice-mid" type="color" value="#ffffff"
@@ -93,18 +130,33 @@
                         <input id="stroke-color-choice-mid" type="color" value="#000000"
                             onchange="onChangeStroke(this.id,'mid')">
                     </div>
+                </div>
+            </div>
+            <div class="input-bottom flex edit-line">
+                <input type="text" class="text-bottom line" onkeyup="renderText('bottom')"
+                    placeholder="type your text here..">
+                <div class="edit-btns-1 flex">
+                    <div class="font-size-btns flex">
+                        <button onclick="onChangeFontSize(10, 'bottom')"><i class="fas fa-plus"></i></button>
+                        <i class="fas fa-text-height"></i>
+                        <button onclick="onChangeFontSize(-10, 'bottom')"><i class="fas fa-minus"></i></button>
+                    </div>
+                    <div class="align">
+                        <button onclick="onChangeAlign('left', 'bottom')"><i class="fas fa-align-left"></i></button>
+                        <button onclick="onChangeAlign('center', 'bottom')"><i class="fas fa-align-center"></i></button>
+                        <button onclick="onChangeAlign('right', 'bottom')"><i class="fas fa-align-right"></i></button>
+                    </div>
                     <div class="move">
-                        <button class="up" onclick="onMoveText('up', 'mid')">up</buttun>
-                            <button class="down" onclick="onMoveText('down', 'mid')">down</buttun>
-                                <button class="right" onclick="onMoveText('right', 'mid')">right</buttun>
-                                    <button class="left" onclick="onMoveText('left', 'mid')">left</buttun>
+                        <button class="up" onclick="onMoveText('up', 'bottom')"><i class="fas fa-angle-double-up"></i></buttun>
+                            <button class="down" onclick="onMoveText('down', 'bottom')"><i
+                                class="fas fa-angle-double-down"></i></buttun>
+                                <button class="right" onclick="onMoveText('right', 'bottom')"><i
+                                    class="fas fa-angle-double-right"></i></buttun>
+                                    <button class="left" onclick="onMoveText('left', 'bottom')"><i
+                                        class="fas fa-angle-double-left"></i></buttun>
                     </div>
                 </div>
-                <div class="input-bottom">
-                    Line 2:
-                    <input type="text" class="text-bottom" onkeyup="renderText('bottom')">
-                        <button onclick="onChangeFontSize(10, 'bottom')">+</button>
-                            <button onclick="onChangeFontSize(-10, 'bottom')">-</button>
+                <div class="edit-btns-2 flex">
                     <div class="color-picker">
                         Font Color
                         <input id="color-choice-bottom" type="color" value="#ffffff"
@@ -115,24 +167,18 @@
                         <input id="stroke-color-choice-bottom" type="color" value="#000000"
                             onchange="onChangeStroke(this.id,'bottom')">
                     </div>
-                    <div class="move">
-                        <button class="up" onclick="onMoveText('up', 'bottom')">up</buttun>
-                            <button class="down" onclick="onMoveText('down', 'bottom')">down</buttun>
-                                <button class="right" onclick="onMoveText('right', 'bottom')">right</buttun>
-                                    <button class="left" onclick="onMoveText('left', 'bottom')">left</buttun>
-                    </div>
-                </div>
-                <div class="download">
-                    <a href="#" class="download" onclick="onDownload(this)" download="my-cool-meme.jpg">
-                        Download Meme
-                    </a>
                 </div>
             </div>
+            <div class="download">
+                <a href="#" class="download" onclick="onDownload(this)" download="my-cool-meme.jpg">
+                    <i class="fas fa-download"></i>
+                </a>
             </div>
+        </div>
+        </div>
 
-        </section>
+    </section>
 
-    </main>
     <div id="about" class="about flex">
         <div class="about-text-container flex">
             <div class="about-text flex">

@@ -1,6 +1,11 @@
-body {
-    margin: 0;
-    padding: 0;
+.editor-container {
+    justify-content: space-evenly;
+
+}
+
+.canvas-container {
+    justify-content: flex-start;
+    align-items: flex-start;
 }
 
 canvas {
@@ -11,18 +16,73 @@ canvas {
 }
 
 .editor-panel {
-    width: 200px;
+    width: 50%;
     height: 100%;
     /* background-color: darksalmon; */
     margin: 10px;
     flex-direction: column;
 }
+.editor-panel>* {
+    margin: 10px;
+}
 
+.edit-line {
+    flex-direction: column;
+    margin: 10px;
+}
+.line {
+    width: 100%;
+    height: 10vh;
+    font-size: 8vh;
+}
+.line:focus {
+    border: 2px solid rgb(89, 89, 150);
+}
+.edit-btns-1, 
+.edit-btns-2 {
+    align-items: center;
+    justify-content: space-evenly;
+    height: 10vh;
+}
+.edit-btns-1 button:hover,
+.edit-btns-2 button:hover {
+    background-color: rgb(196, 196, 247);
+}
 
+.font-size-btns button {
+    margin: 5px;
+    align-items: center;
+}
+.font-size-btns .fa-text-height{
+    padding-top: 6px;
+}
+.color-picker {
+    height: 30px;
+    border-radius: 15px;
+}
 .download {
     text-decoration: none;
-    border: 1px solid rgba(238, 238, 238, 0.185);
     padding: 5px;
     display: inline-block;
     color: black;
+    font-size: 50px;
+}
+
+@media (max-width: 960px) {
+    .editor-container {
+        flex-direction: column;
+    } 
+    .canvas-container{
+        width: 100%;
+        justify-content: center;
+    }
+    .editor-panel{
+        width: 100%;
+        margin: 0;
+        align-items: center;
+    }
+    .line {
+        height: 5vh;
+        font-size: 4vh;
+    }
 }

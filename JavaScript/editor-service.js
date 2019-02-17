@@ -16,6 +16,14 @@ var gCtx;
 var gCurrImgUrl;
 var gMoveCoords = {x:0, y:0, name: 0};
 
+function createStartGCoords() {
+    gCoords = {
+        top: { x: gCanvas.width / 2, y: (gCurrStyle.top.fontSize), width: 0, box: {x: {min: 0, max:0}, y:{min:0, max:0}}, move: false},
+        mid: { x: gCanvas.width / 2, y: gCanvas.height / 2, width: 0, box: {x: {min: 0, max:0}, y:{min:0, max:0}}, move: false},
+        bottom: { x: gCanvas.width / 2, y: (gCanvas.height - 10), width: 0, box: {x: {min: 0, max:0}, y:{min:0, max:0}}, move: false}
+    }
+}
+
 function updateContextFontSize(change, location){
     gCurrStyle[location].fontSize += change;
     renderText(location);
@@ -28,7 +36,12 @@ function updateStroke(col,location){
     gCurrStyle[location].strokeStyle = col;
     renderText(location);
 }
-
+function updateAlign(align, location) {
+    if (align === 'left') gCoords[location].x = gCoords[location].width / 2;
+    else if (align === 'center') gCoords[location].x = gCanvas.width / 2;
+    else gCoords[location].x = gCanvas.width - gCoords[location].width / 2;
+    renderText(location);
+}
 function getGCtx(){
     return gCtx;
 }
