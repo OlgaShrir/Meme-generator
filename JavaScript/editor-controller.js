@@ -89,6 +89,7 @@ function renderTextMid(text) {
     gCtx.strokeText(text, coords.mid.x, coords.mid.y);
 }
 function renderTextBottom(text) {
+    // debugger;
     updateStyle('bottom');
     var coords = getGCoords();
     var width = gCtx.measureText(text).width;
@@ -148,8 +149,11 @@ function onMouseDown(ev) {
     let x = ev.offsetX;
     let y = ev.offsetY;
     let boxToMove = isClickedBox(x,y);
+    console.log(x,y);
+    
     if (boxToMove) {
         setMovecoords(x,y);
+        console.log('!');
     }
     else return;
 }
@@ -158,6 +162,7 @@ function onMouseMove(ev) {
     let locMoved = moveCoords.name;
     let coords = getGCoords();
     if (!locMoved) return;
+    // debugger;
     let x = ev.offsetX;
     let y = ev.offsetY;
     let diffX = x - moveCoords.x;

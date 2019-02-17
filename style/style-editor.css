@@ -10,8 +10,7 @@
 canvas {
     border: 1px solid black;
     margin: 10px;
-    width: 100%;
-    height: auto;
+    /* width: 100%; */
 }
 
 .editor-panel {
@@ -28,6 +27,28 @@ canvas {
     margin-right: 0.5rem;
     background-color: rgb(196, 196, 247);
 }
+
+.editor-panel {
+    align-items: center;
+}
+
+.back-to-gallery,
+.addLine-btn {
+    color: rgb(89, 89, 150);
+    background-color: #d3d8f2;
+    /* border-radius: 15px; */
+    /* height: 100%; */
+    max-width: 200px;
+    height: 50px;
+    margin-right: 5px;
+    cursor: pointer;
+}
+
+.back-to-gallery:hover,
+.addLine-btn:hover {
+    border: 4px solid rgb(89, 89, 150);
+}
+
 .edit-line {
     flex-direction: column;
     margin: 10px;
