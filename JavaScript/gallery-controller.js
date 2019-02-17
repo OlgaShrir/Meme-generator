@@ -9,7 +9,7 @@ function renderGallery(imgs) {
     let elGallery = document.querySelector('.gallery');
     let strHtml = ``;
     imgs.forEach(function(img) {
-        strHtml += `<div id="${img.id}" class="gallery-item" onclick="onSelectImg(this.id)"><img src="${img.url}"></img></div>`;
+        strHtml += `<div id="${img.id}" class="gallery-item" onclick="onSelectImg(event,this.id)"><img src="${img.url}"></img></div>`;
     });
     elGallery.innerHTML = strHtml;
 }
@@ -25,7 +25,7 @@ function renderKeywordsAndSearch() {
         let size = word.rate * 3 + 16;
         let style = `style="font-size:${size}px;`
         if (size>20) style += ` font-weight:bold`;
-        strHtmlKeywords += `<div class='keyword ${word.name}' ${style}" onclick="renderFilteredImgs('${word.name}',[${word.imgs}])"><p>${word.name}</p></div>`;
+        strHtmlKeywords += `<div class='keyword ${word.name}' ${style}" onclick="renderFilteredImgs('${word.name}',[${word.imgs}])">${word.name}</div>`;
         strHtmlSearch += `<option value="${word.name}">${word.name}`
     });
     elKeyWords.innerHTML = strHtmlKeywords;
@@ -61,7 +61,8 @@ function toggleKeywords() {
         renderKWBtn.innerText = 'Categories';
     }
 }
-function onSelectImg(id) {
+function onSelectImg(ev, id) {
+    ev.stopPropagation();
     let srcImg = getSelectedImg(id);
     initCanvas(srcImg);
     toggleEditorGallery();
@@ -95,14 +96,10 @@ function toggleEditorGallery() {
 
 function toggleContact(){
     var contacts = document.getElementById('contacts')
+    contacts.classList.toggle('hidden')
+    contacts.classList.toggle('flex')
 
-    if (contacts.style.display === "none") {
-        contacts.style.display = "block"
-    }
-    else {
-        contacts.style.display = "none"
-    } 
-}
+ }
 
 function onSumbit(){
     var name = document.querySelector('.name').value;

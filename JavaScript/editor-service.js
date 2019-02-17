@@ -3,9 +3,9 @@
 var gText = {top: '', bottom: ''};
 var gCanvas = document.querySelector('#canvas');
 var gCurrStyle = { 
-                top: {fontSize: 50, fillStyle: 'white', strokeStyle: '#000000'},
-                bottom: {fontSize: 50, fillStyle: 'white', strokeStyle: '#000000'}, 
-                mid: {fontSize: 50, fillStyle: 'white', strokeStyle: '#000000'} 
+                top: {fontSize: 50, fillStyle: 'white', strokeStyle: '#000000', fFamily: 'Impact'},
+                bottom: {fontSize: 50, fillStyle: 'white', strokeStyle: '#000000', fFamily: 'Impact'}, 
+                mid: {fontSize: 50, fillStyle: 'white', strokeStyle: '#000000', fFamily: 'Impact'} 
             };
 var gCoords = { top: {x: 0, y: 0, width: 0, box: {x: {min: 0, max:0}, y:{min:0, max:0}}, move: false},
                 bottom: {x: 0, y: 0, width: 0, box: {x: {min: 0, max:0}, y:{min:0, max:0}}, move: false},
@@ -21,6 +21,13 @@ function createStartGCoords() {
         top: { x: gCanvas.width / 2, y: (gCurrStyle.top.fontSize), width: 0, box: {x: {min: 0, max:0}, y:{min:0, max:0}}, move: false},
         mid: { x: gCanvas.width / 2, y: gCanvas.height / 2, width: 0, box: {x: {min: 0, max:0}, y:{min:0, max:0}}, move: false},
         bottom: { x: gCanvas.width / 2, y: (gCanvas.height - 10), width: 0, box: {x: {min: 0, max:0}, y:{min:0, max:0}}, move: false}
+    }
+}
+function defaultStyle() {
+    gCurrStyle = {
+        top: { fontSize: 50, textAlign: 'center', fillStyle: '#ffffff', strokeStyle: '#000000', fFamily: 'Impact' },
+        mid: { fontSize: 50, textAlign: 'center', fillStyle: '#ffffff', strokeStyle: '#000000', fFamily: 'Impact' },
+        bottom: { fontSize: 50, textAlign: 'center', fillStyle: '#ffffff', strokeStyle: '#000000', fFamily: 'Impact' }
     }
 }
 
@@ -41,6 +48,10 @@ function updateAlign(align, location) {
     else if (align === 'center') gCoords[location].x = gCanvas.width / 2;
     else gCoords[location].x = gCanvas.width - gCoords[location].width / 2;
     renderText(location);
+}
+function updateFFam(fam, loc) {
+    gCurrStyle[loc].fFamily = fam;
+    renderText(loc);
 }
 function getGCtx(){
     return gCtx;
@@ -65,6 +76,9 @@ function getNewFillStyle(location){
 }
 function getNewStrokeStyle(location){
     return gCurrStyle[location].strokeStyle;
+}
+function getNewfFamily(location) {
+    return gCurrStyle[location].fFamily;
 }
 function getGCoords(){
     return gCoords;

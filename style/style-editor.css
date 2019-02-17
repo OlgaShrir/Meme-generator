@@ -25,7 +25,11 @@ canvas {
 .editor-panel>* {
     margin: 10px;
 }
-
+.editor-panel> button {
+    font-size: 1.5em;
+    margin-right: 0.5rem;
+    background-color: rgb(196, 196, 247);
+}
 .edit-line {
     flex-direction: column;
     margin: 10px;
@@ -43,6 +47,7 @@ canvas {
     align-items: center;
     justify-content: space-evenly;
     height: 10vh;
+    margin: 2px;
 }
 .edit-btns-1 button:hover,
 .edit-btns-2 button:hover {
